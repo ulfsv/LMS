@@ -254,9 +254,9 @@ namespace LMS.Migrations
                     Description = table.Column<string>(nullable: true),
                     UploadTimeStamp = table.Column<DateTime>(nullable: false),
                     Storage = table.Column<string>(nullable: true),
-                    CourseId = table.Column<int>(nullable: false),
-                    ModuleId = table.Column<int>(nullable: false),
-                    ActivityId = table.Column<int>(nullable: false),
+                    CourseId = table.Column<int>(nullable: true),
+                    ModuleId = table.Column<int>(nullable: true),
+                    ActivityId = table.Column<int>(nullable: true),
                     ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -267,7 +267,7 @@ namespace LMS.Migrations
                         column: x => x.ActivityId,
                         principalTable: "Activities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Documents_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
@@ -279,13 +279,13 @@ namespace LMS.Migrations
                         column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Documents_Modules_ModuleId",
                         column: x => x.ModuleId,
                         principalTable: "Modules",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

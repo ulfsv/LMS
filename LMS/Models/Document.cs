@@ -14,9 +14,9 @@ namespace LMS.Models
         public string Storage { get; set; }
 
         // Foreign key
-        public int CourseId { get; set; }
-        public int ModuleId { get; set; }
-        public int ActivityId { get; set; }
+        public int? CourseId { get; set; }
+        public int? ModuleId { get; set; }
+        public int? ActivityId { get; set; }
         public string ApplicationUserId { get; set; }
 
         // Navigation property
