@@ -11,11 +11,10 @@ namespace LMS.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
-        public string Name { get; set; }
         public DateTime TimeOfRegistration { get; set; }
 
         // Foreign key
-        public int CourseId { get; set; }
+        public int? CourseId { get; set; }
 
         // Navigation property
         public Course Course { get; set; }

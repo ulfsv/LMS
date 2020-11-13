@@ -16,6 +16,7 @@ namespace LMS.Models
         // Navigation property
         public ICollection<Module> Modules { get; set; }
         public ICollection<Document> Documents { get; set; }
+        public ICollection<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }

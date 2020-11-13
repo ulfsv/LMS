@@ -91,7 +91,6 @@ namespace LMS.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
                     TimeOfRegistration = table.Column<DateTime>(nullable: false),
                     CourseId = table.Column<int>(nullable: false)
                 },
