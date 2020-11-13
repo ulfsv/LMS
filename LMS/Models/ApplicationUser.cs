@@ -14,6 +14,12 @@ namespace LMS.Models
         public string Name { get; set; }
         public DateTime TimeOfRegistration { get; set; }
 
+        // Foreign key
+        public int CourseId { get; set; }
+
+        // Navigation property
+        public Course Course { get; set; }
+        public ICollection<Document> Documents { get; set; }
 
     }
 }
