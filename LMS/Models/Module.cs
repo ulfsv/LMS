@@ -20,7 +20,7 @@ namespace LMS.Models
         // Navigation property
         public Course Course { get; set; }
 
-        public ICollection<Activity> Activities { get; set; }
+        public ICollection<Aktivitet> Activities { get; set; }
         public ICollection<Document> Documents { get; set; }
 
     }

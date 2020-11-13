@@ -21,7 +21,7 @@ namespace LMS.Models
         // Navigation property
         public Course Course { get; set; }
         public Module Module { get; set; }
-        public Activity Activity { get; set; }
+        public Aktivitet Activity { get; set; }
 
     }
 }

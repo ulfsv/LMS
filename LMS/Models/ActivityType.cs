@@ -11,6 +11,6 @@ namespace LMS.Models
 
         public string TypeName { get; set; }
 
-        public ICollection<Activity> Activities { get; set; }
+        public ICollection<Aktivitet> Activities { get; set; }
     }
 }
