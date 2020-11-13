@@ -27,11 +27,11 @@ namespace LMS
                 var config = services.GetRequiredService<IConfiguration>();
 
                 //dotnet user-secrets set "AdminPW" "LexiconNET20!"
-                var adminPW = config["AdminPW"];
+                //var adminPW = config["12#¤qwER"];
 
                 try
                 {
-                    //SeedData.InitializeAsync(services, adminPW).Wait();
+                    SeedData.InitializeAsync(services, "12#¤qwER").Wait();
                 }
                 catch (Exception e)
                 {
