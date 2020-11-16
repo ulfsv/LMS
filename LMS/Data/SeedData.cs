@@ -18,12 +18,13 @@ namespace LMS.Data
 
             using (var context = new ApplicationDbContext(services.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-                //if (context.Courses.Any()) return;
+                if (context.Courses.Any()) return;
+
                 var fake = new Faker();
 
                 var courses = new List<Course>();
 
-                for (int i = 0; i < 20; i++)
+                for (int i = 1; i < 21; i++)
                 {
                     var course = new Course
                     {
@@ -35,6 +36,7 @@ namespace LMS.Data
                     courses.Add(course);
                 }
                 await context.AddRangeAsync(courses);
+                await context.SaveChangesAsync();
 
                 var userManger = services.GetRequiredService<UserManager<ApplicationUser>>();
                 var roleManger = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -61,9 +63,9 @@ namespace LMS.Data
                         LastName = lName,
                         Email = fake.Internet.Email($"{fName} {lName}"),
                         UserName = fake.Internet.Email($"{fName} {lName}"),
-                        Course = courses[rnd.Next(courses.Count)]
+                        CourseId = courses[rnd.Next(courses.Count)].Id
                     };
-                    var results = await userManger.CreateAsync(teacher);
+                    var results = await userManger.CreateAsync(teacher, adminPW);
                     var results2 = await userManger.AddToRoleAsync(teacher, "Teacher");
                 }
 
@@ -77,9 +79,9 @@ namespace LMS.Data
                         LastName = lName,
                         Email = fake.Internet.Email($"{fName} {lName}"),
                         UserName = fake.Internet.Email($"{fName} {lName}"),
-                        Course = courses[rnd.Next(courses.Count)]
+                        CourseId = courses[rnd.Next(courses.Count)].Id
                     };
-                    await userManger.CreateAsync(student);
+                    await userManger.CreateAsync(student, adminPW);
                     await userManger.AddToRoleAsync(student, "Student");
                 }
 
