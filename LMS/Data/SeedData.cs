@@ -107,7 +107,44 @@ namespace LMS.Data
 
                 await context.AddRangeAsync(modules);
                 await context.SaveChangesAsync();
+                // seed ActivityTypes 
+                var types = new[] { "Lecture", "Exercise", "E-learning", "Assignment" };
+                var activityTypes = new List<ActivityType>();
+                foreach (var type in types)
+                {
+                    var activityType = new ActivityType
+                    {
+                        TypeName = type
+                    };
+                    activityTypes.Add(activityType);
+                }
+                await context.AddRangeAsync(activityTypes);
+                await context.SaveChangesAsync();
 
+                // seed Activity
+                var activities = new List<Aktivitet>();
+
+                foreach (var module in modules)
+
+                {
+                    for (int i = 0; i < 7; i++)
+                    {
+                        var activity = new Aktivitet
+                        {
+                            Name = fake.Company.CatchPhrase(),
+                            Description = fake.Hacker.Verb(),
+                            ModuleId = module.Id,
+                            StartTime = module.StartDate.AddDays(i * 4),
+                            EndTime = module.StartDate.AddDays(i * 4 + 3),
+                            ActivityTypeId = activityTypes[rnd.Next(activityTypes.Count)].Id                           
+                        };
+                        activities.Add(activity);
+                    }
+                }
+
+                await context.AddRangeAsync(activities);
+                await context.SaveChangesAsync();
+                
             }
         }
     }
