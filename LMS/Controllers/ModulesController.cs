@@ -12,17 +12,17 @@ namespace LMS.Controllers
 {
     public class ModulesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext db;
 
         public ModulesController(ApplicationDbContext context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: Modules
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Modules.Include(x => x.Course);
+            var applicationDbContext = db.Modules.Include(x => x.Course);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var @module = await _context.Modules
+            var @module = await db.Modules
                 .Include(x => x.Course)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (@module == null)
@@ -48,7 +48,7 @@ namespace LMS.Controllers
         // GET: Modules/Create
         public IActionResult Create()
         {
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id");
+            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
             return View();
         }
 
@@ -61,11 +61,11 @@ namespace LMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@module);
-                await _context.SaveChangesAsync();
+                db.Add(@module);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @module.CourseId);
+            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name", @module.CourseId);
             return View(@module);
         }
 
@@ -77,12 +77,12 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var @module = await _context.Modules.FindAsync(id);
+            var @module = await db.Modules.FindAsync(id);
             if (@module == null)
             {
                 return NotFound();
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @module.CourseId);
+            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name", @module.CourseId);
             return View(@module);
         }
 
@@ -102,8 +102,8 @@ namespace LMS.Controllers
             {
                 try
                 {
-                    _context.Update(@module);
-                    await _context.SaveChangesAsync();
+                    db.Update(@module);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,7 +118,7 @@ namespace LMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", @module.CourseId);
+            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Id", @module.CourseId);
             return View(@module);
         }
 
@@ -130,7 +130,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var @module = await _context.Modules
+            var @module = await db.Modules
                 .Include(x => x.Course)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (@module == null)
@@ -146,15 +146,15 @@ namespace LMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var @module = await _context.Modules.FindAsync(id);
-            _context.Modules.Remove(@module);
-            await _context.SaveChangesAsync();
+            var @module = await db.Modules.FindAsync(id);
+            db.Modules.Remove(@module);
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ModuleExists(int id)
         {
-            return _context.Modules.Any(e => e.Id == id);
+            return db.Modules.Any(e => e.Id == id);
         }
     }
 }

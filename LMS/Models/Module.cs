@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace LMS.Models
         public DateTime EndDate { get; set; }
 
         // Foreign key
+        [DisplayName("Course")]
         public int CourseId { get; set; }
 
         // Navigation property
