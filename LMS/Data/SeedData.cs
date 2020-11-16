@@ -18,7 +18,7 @@ namespace LMS.Data
 
             using (var context = new ApplicationDbContext(services.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-                if (context.Courses.Any()) return;
+                //if (context.Courses.Any()) return;
 
                 var fake = new Faker();
 
@@ -86,6 +86,28 @@ namespace LMS.Data
                 }
 
                 await context.SaveChangesAsync();
+                // seed Modules
+                var modules = new List<Module>();
+                foreach (var course in courses)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        var module = new Module
+                        {
+                            Name = fake.Company.CatchPhrase(),
+                            Description = fake.Hacker.Verb(),
+                            //Duration = new TimeSpan(0, 55, 0),
+                            StartDate = course.StartDate.AddDays(i * 28),
+                            EndDate = course.StartDate.AddDays(i * 28 + 27),
+                            CourseId = course.Id
+                        };
+                        modules.Add(module);
+                    }
+                }
+
+                await context.AddRangeAsync(modules);
+                await context.SaveChangesAsync();
+
             }
         }
     }
