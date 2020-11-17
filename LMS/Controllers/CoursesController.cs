@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Models;
+using LMS.Models.ViewModels;
 
 namespace LMS.Controllers
 {
@@ -18,6 +19,22 @@ namespace LMS.Controllers
         {
             db = context;
         }
+
+        // Teacher OverView
+        public async Task<IActionResult> TeacherOverView()
+        {
+            var model = new TeacherOverViewModel();
+            model.Courses = await db.Courses.ToListAsync();
+            model.Modules = await db.Modules.ToListAsync();
+            model.Activities = await db.Activities.ToListAsync();
+            model.Students = await db.ApplicationUsers.ToListAsync();
+            model.Documents = await db.Documents.ToListAsync();
+
+            model.NextCourse = "Your next Activity: XXXXXX, starts at XX.XX today!";
+
+            return View(model);
+        }
+        // END Teacher OverView
 
         // GET: Courses
         public async Task<IActionResult> Index()

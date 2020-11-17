@@ -82,3 +82,25 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/* Own Style*/
+
+.coursesBox {
+    border: 1px solid black;
+    height: 700px;
+    overflow-y: scroll;
+}
+
+.moduleBox {
+    border: 1px solid gray;
+    height: 350px;
+}
+.activityBox {
+    border: 1px solid gray;
+    height: 350px;
+}
+.infoBox {
+    border: 1px solid black;
+    height: 700px;
+    overflow-y: scroll;
+}

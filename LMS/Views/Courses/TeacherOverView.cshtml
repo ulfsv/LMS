@@ -1,0 +1,39 @@
+﻿@model LMS.Models.ViewModels.TeacherOverViewModel
+
+@{
+    ViewData["Title"] = "Teacher Course Overview";
+}
+
+    <h1>Course Overview</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <div>
+        @Model.NextCourse
+    </div>
+
+    <div class="row">
+        <div class="col-3 coursesBox">
+            <h3>Courses</h3>
+            @foreach (var item in Model.Courses)
+            {
+                <ul class="list-group">
+                    <li class="list-group-item">@item.Name</li>
+                </ul>
+            }
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-12 moduleBox">
+                    Module
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 activityBox">
+                    Activity
+                </div>
+            </div>
+        </div>
+        <div class="col-6 infoBox">Big info gray box</div>
+    </div>
