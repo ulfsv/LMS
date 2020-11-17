@@ -107,6 +107,7 @@ namespace LMS.Data
 
                 await context.AddRangeAsync(modules);
                 await context.SaveChangesAsync();
+
                 // seed ActivityTypes 
                 var types = new[] { "Lecture", "Exercise", "E-learning", "Assignment" };
                 var activityTypes = new List<ActivityType>();
@@ -144,7 +145,42 @@ namespace LMS.Data
 
                 await context.AddRangeAsync(activities);
                 await context.SaveChangesAsync();
-                
+
+                // Seed Documents
+                var documents = new List<Document>();
+
+                var users = context.ApplicationUsers.ToList();
+
+                for (int i = 0; i < 20; i++)
+                {
+                    var document = new Document
+                    {
+                        Name = fake.Company.CatchPhrase(),
+                        Description = fake.Hacker.Verb(),
+                        UploadTimeStamp = DateTime.Now,
+                        Storage = fake.Internet.Url(),
+                        ApplicationUserId = users[rnd.Next(users.Count)].Id
+                    };
+
+                    switch(rnd.Next(3))
+                    {
+                        case 0:
+                            document.CourseId = courses[rnd.Next(courses.Count)].Id;
+                            break;
+                        case 1:
+                            document.ModuleId = modules[rnd.Next(modules.Count)].Id;
+                            break;
+                        case 2:
+                            document.ActivityId = activities[rnd.Next(activities.Count)].Id;
+                            break;
+                    }
+
+                    documents.Add(document);
+                }
+
+                await context.AddRangeAsync(documents);
+                await context.SaveChangesAsync();
+
             }
         }
     }

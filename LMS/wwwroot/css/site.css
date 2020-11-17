@@ -8,8 +8,21 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
+/*a {
   color: #0366d6;
+}*/
+
+a:hover,
+.viewBtn:hover {
+    color: darkorange;
+    text-decoration: none;
+}
+.viewBtn {
+    padding: 7px 14px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #02020282;
+    color: white;
 }
 
 .btn-primary {

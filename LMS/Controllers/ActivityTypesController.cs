@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LMS.Data;
+using LMS.Models;
+using LMS.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using LMS.Data;
-using LMS.Models;
 
 namespace LMS.Controllers
 {
     public class ActivityTypesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
 
         public ActivityTypesController(ApplicationDbContext context)
         {
-            _context = context;
+            _db = context;
         }
 
         // GET: ActivityTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ActivityTypes.ToListAsync());
+            return View(await _db.ActivityTypes.ToListAsync());
         }
 
         // GET: ActivityTypes/Details/5
@@ -33,7 +32,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var activityType = await _context.ActivityTypes
+            var activityType = await _db.ActivityTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (activityType == null)
             {
@@ -50,7 +49,7 @@ namespace LMS.Controllers
         }
 
         // POST: ActivityTypes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -58,8 +57,8 @@ namespace LMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(activityType);
-                await _context.SaveChangesAsync();
+                _db.Add(activityType);
+                await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(activityType);
@@ -73,7 +72,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var activityType = await _context.ActivityTypes.FindAsync(id);
+            var activityType = await _db.ActivityTypes.FindAsync(id);
             if (activityType == null)
             {
                 return NotFound();
@@ -82,7 +81,7 @@ namespace LMS.Controllers
         }
 
         // POST: ActivityTypes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -97,8 +96,8 @@ namespace LMS.Controllers
             {
                 try
                 {
-                    _context.Update(activityType);
-                    await _context.SaveChangesAsync();
+                    _db.Update(activityType);
+                    await _db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +123,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var activityType = await _context.ActivityTypes
+            var activityType = await _db.ActivityTypes
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (activityType == null)
             {
@@ -139,15 +138,50 @@ namespace LMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var activityType = await _context.ActivityTypes.FindAsync(id);
-            _context.ActivityTypes.Remove(activityType);
-            await _context.SaveChangesAsync();
+            var activityType = await _db.ActivityTypes.FindAsync(id);
+            _db.ActivityTypes.Remove(activityType);
+            await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ActivityTypeExists(int id)
         {
-            return _context.ActivityTypes.Any(e => e.Id == id);
+            return _db.ActivityTypes.Any(e => e.Id == id);
+        }
+
+        //Stefan Add Custom Activity Type
+
+        public IActionResult AddNewActivity()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddNewActivity(AddNewActivityViewModel customActivityModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var customActivityType = new ActivityType
+                {
+                    TypeName = customActivityModel.CustomActivityType
+                };
+                if (!CustomActivityExist(customActivityModel.CustomActivityType))
+                {
+                    _db.Add(customActivityType);
+                    await _db.SaveChangesAsync();
+                }
+                else
+                {
+                    return Json($"{customActivityModel.CustomActivityType} is already in use, please scroll dropdown list!");
+                }
+            }
+            return View(customActivityModel);
+        }
+
+        private bool CustomActivityExist(string customActivityType)
+        {
+            return _db.ActivityTypes.Any(e => e.TypeName == customActivityType);
         }
     }
 }

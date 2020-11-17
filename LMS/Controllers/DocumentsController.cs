@@ -51,10 +51,10 @@ namespace LMS.Controllers
         // GET: Documents/Create
         public IActionResult Create()
         {
-            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Id");
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id");
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id");
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
+            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Name");
+            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "UserName");
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name");
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Name");
             return View();
         }
 
@@ -71,10 +71,10 @@ namespace LMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Id", document.ActivityId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", document.ApplicationUserId);
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", document.CourseId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", document.ModuleId);
+            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Name", document.ActivityId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "UserName", document.ApplicationUserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", document.CourseId);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Name", document.ModuleId);
             return View(document);
         }
 
@@ -91,10 +91,10 @@ namespace LMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Id", document.ActivityId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", document.ApplicationUserId);
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", document.CourseId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", document.ModuleId);
+            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Name", document.ActivityId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "UserName", document.ApplicationUserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", document.CourseId);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Name", document.ModuleId);
             return View(document);
         }
 
@@ -130,10 +130,10 @@ namespace LMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Id", document.ActivityId);
-            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "Id", document.ApplicationUserId);
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Id", document.CourseId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", document.ModuleId);
+            ViewData["ActivityId"] = new SelectList(_context.Activities, "Id", "Name", document.ActivityId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.ApplicationUsers, "Id", "UserName", document.ApplicationUserId);
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", document.CourseId);
+            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Name", document.ModuleId);
             return View(document);
         }
 
