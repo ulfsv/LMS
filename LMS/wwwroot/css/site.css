@@ -105,7 +105,7 @@ body {
 .infoBox {
     border: 1px solid black;
     height: 700px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     background-color: gray;
 }
 .coursesBox,
@@ -114,12 +114,37 @@ body {
 .myTopPadding {
     padding-top: 25px;
 }
-
-.insideBoxes {
+.modulBox {
+    padding: 30px 0;
+}
+.activityH6 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.myBtn {
+    text-decoration: none !important;
+    color: black;
+}
+.myBtn:hover {
+    color: wheat;
+}
+.bgBox {
     border: 1px solid black;
+    margin-bottom: 15px;
+}
+.card-header {
+    background-color: gray;
+}
+.card-body {
+    padding: .80rem;
+    overflow-y: scroll;
+    max-height: 195px;
+}
+.insideBoxes {
+    text-align: center;
     height: auto;
     /*overflow-y: scroll;*/
-    background-color: red;
+    background-color: wheat;
 }
 
 .boxTitle {
@@ -127,7 +152,7 @@ body {
     font-weight: 700;
 }
 .boxParagraph {
-    width: 70%;
+    width: 100%;
 }
 
 .colPadding {

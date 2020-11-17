@@ -4,7 +4,7 @@
     ViewData["Title"] = "Teacher Course Overview";
 }
 
-<h1>Course Overview</h1>
+<h1>Teacher Course Overview</h1>
 
 <p>
     <a asp-action="Create">Create New Course</a>
@@ -23,15 +23,17 @@
             </ul>
         }
     </div>
-    <div class="col-2 Box">
-        <div class="activityBox">
-            <h3 class="boxTitle myTopPadding pl-sm-2">Module</h3>
+    @*
+        <div class="col-2 Box">
+            <div class="activityBox">
+                <h3 class="boxTitle myTopPadding pl-sm-2">Module</h3>
+            </div>
+            <div class="activityBox">
+                <h3 class="boxTitle myTopPadding pl-sm-2">Activity</h3>
+            </div>
         </div>
-        <div class="activityBox">
-            <h3 class="boxTitle myTopPadding pl-sm-2">Activity</h3>
-        </div>
-    </div>
-    <div class="col-7 infoBox">
+    *@
+    <div class="col-8 infoBox ml-sm-2">
         <div class="row">
             <div class="col-sm-6 colPadding">
                 <h3 class="boxTitle">Course Name goes here!</h3>
@@ -49,6 +51,47 @@
             <div class="col-sm-3 colPadding">
                 <div id="listDocId" class="activityBox">
                     <h5 class="insideBoxes">List of Documents</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 modulBox">
+            <div class="bgBox">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left myBtn" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h3 class="boxTitle">Module (with accordian acctivities)</h3>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                             data-parent="#accordionExample">
+                            <div class="card-body">
+                                <h6 class="activityH6">Name of (Course - Module - Activities)</h6>
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                                brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                them accusamus labore sustainable VHS.
+
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                                brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                them accusamus labore sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
