@@ -89,18 +89,50 @@ body {
     border: 1px solid black;
     height: 700px;
     overflow-y: scroll;
+    background-color: wheat;
 }
 
 .moduleBox {
     border: 1px solid gray;
     height: 350px;
+    background-color: dimgray;
 }
 .activityBox {
     border: 1px solid gray;
     height: 350px;
+    background-color: lightgray;
 }
 .infoBox {
     border: 1px solid black;
     height: 700px;
     overflow-y: scroll;
+    background-color: gray;
+}
+.coursesBox,
+.moduleBox,
+.infoBox,
+.myTopPadding {
+    padding-top: 25px;
+}
+
+.insideBoxes {
+    border: 1px solid black;
+    height: auto;
+    /*overflow-y: scroll;*/
+    background-color: red;
+}
+
+.boxTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+.boxParagraph {
+    width: 70%;
+}
+
+.colPadding {
+    padding: 0 10px;
+}
+.colPaddingMiddle {
+    padding-right: 0;
 }
