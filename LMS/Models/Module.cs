@@ -12,7 +12,7 @@ namespace LMS.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(maximumLength:50, MinimumLength = 3)]
+        [StringLength(maximumLength: 50, MinimumLength = 3)]
         public string Name { get; set; }
 
         [Required]

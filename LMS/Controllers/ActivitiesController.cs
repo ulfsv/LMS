@@ -12,17 +12,17 @@ namespace LMS.Controllers
 {
     public class ActivitiesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext db;
 
         public ActivitiesController(ApplicationDbContext context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: Aktivitets
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Activities.Include(a => a.ActivityType).Include(a => a.Module);
+            var applicationDbContext = db.Activities.Include(a => a.ActivityType).Include(a => a.Module);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var aktivitet = await _context.Activities
+            var aktivitet = await db.Activities
                 .Include(a => a.ActivityType)
                 .Include(a => a.Module)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -46,16 +46,34 @@ namespace LMS.Controllers
             return View(aktivitet);
         }
 
+        // GET: Activities/PartialDetails/5
+        public async Task<IActionResult> PartialDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var activity = await db.Activities
+                .FirstOrDefaultAsync(a => a.Id == id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("ActivityPartialDetails", activity);
+        }
+
         // GET: Aktivitets/Create
         public IActionResult Create()
         {
-            ViewData["ActivityTypeId"] = new SelectList(_context.ActivityTypes, "Id", "Id");
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id");
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id");
+            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id");
             return View();
         }
 
         // POST: Aktivitets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,12 +81,12 @@ namespace LMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(aktivitet);
-                await _context.SaveChangesAsync();
+                db.Add(aktivitet);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityTypeId"] = new SelectList(_context.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", aktivitet.ModuleId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
+            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
             return View(aktivitet);
         }
 
@@ -80,18 +98,18 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var aktivitet = await _context.Activities.FindAsync(id);
+            var aktivitet = await db.Activities.FindAsync(id);
             if (aktivitet == null)
             {
                 return NotFound();
             }
-            ViewData["ActivityTypeId"] = new SelectList(_context.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", aktivitet.ModuleId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
+            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
             return View(aktivitet);
         }
 
         // POST: Aktivitets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -106,8 +124,8 @@ namespace LMS.Controllers
             {
                 try
                 {
-                    _context.Update(aktivitet);
-                    await _context.SaveChangesAsync();
+                    db.Update(aktivitet);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,8 +140,8 @@ namespace LMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityTypeId"] = new SelectList(_context.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
-            ViewData["ModuleId"] = new SelectList(_context.Modules, "Id", "Id", aktivitet.ModuleId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
+            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
             return View(aktivitet);
         }
 
@@ -135,7 +153,7 @@ namespace LMS.Controllers
                 return NotFound();
             }
 
-            var aktivitet = await _context.Activities
+            var aktivitet = await db.Activities
                 .Include(a => a.ActivityType)
                 .Include(a => a.Module)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -152,15 +170,15 @@ namespace LMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var aktivitet = await _context.Activities.FindAsync(id);
-            _context.Activities.Remove(aktivitet);
-            await _context.SaveChangesAsync();
+            var aktivitet = await db.Activities.FindAsync(id);
+            db.Activities.Remove(aktivitet);
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AktivitetExists(int id)
         {
-            return _context.Activities.Any(e => e.Id == id);
+            return db.Activities.Any(e => e.Id == id);
         }
     }
 }

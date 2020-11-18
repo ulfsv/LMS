@@ -4,37 +4,36 @@
 *@
 
 <div>
-    <div class="col-6 modulBox">
-        <h3 class="boxTitle">Modules and Activities</h3>
-    
-        <div class="bgBox">
-            <div class="accordion" id="accordionExample">
-                <div class="card">
 
-                    @foreach (var item in Model.ModuleList)
-                    {
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-left myBtn" type="button" data-toggle="collapse"
-                                        data-target="#M@(item.Id)" aria-expanded="true" aria-controls="collapseOne">
-                                    <h4 class="moduleTitle">@item.Name</h4>
-                                </button>
-                            </h2>
-                        </div>
+    <h3 class="boxTitle">Modules</h3>
 
-                        <div id="M@(item.Id)" class="collapse" aria-labelledby="headingOne"
-                             data-parent="#accordionExample">
-                            @foreach (var activity in item.Activities)
-                            {
-                                <div class="card-body">
-                                    <h6>@activity.Name</h6>
-                                </div>
-                            }
-                        </div>
+    <div class="bgBox">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
 
-                    }
-                </div>
+                @foreach (var item in Model.ModuleList)
+                {
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left myBtn" type="button" data-toggle="collapse"
+                                    data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
+                                <h4 class="moduleTitle">@item.StartDate.ToString("yyyy-MM-dd") - @item.EndDate.ToString("yyyy-MM-dd") | @item.Name</h4>
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="M@(item.Id)" class="collapse myCollapse" aria-labelledby="headingOne"
+                         data-parent="#accordionExample">
+                        @foreach (var activity in item.Activities)
+                        {
+                            <div id="A@(activity.Id)" class="card-body activitySelector cursor">
+                                <h6>@activity.Name</h6>
+                            </div>
+                        }
+                    </div>
+                }
             </div>
         </div>
     </div>
+</div>
 </div>

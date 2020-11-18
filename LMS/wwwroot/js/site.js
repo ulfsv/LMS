@@ -6,15 +6,13 @@
 // OBS! OBS! OBS! OBS! OBS! Fixa document ready etc.
 
 $(document).ready(function () {
-
     let courses = document.getElementsByClassName("courseSelector");
-
     for (var i = 0; i < courses.length; i++) {
         courses[i].addEventListener('click', getModuleList);
-        courses[i].addEventListener('click', updateDetails);
+        courses[i].addEventListener('click', updateCourseDetails);
     }
 })
-
+/* local host */
 let localUrl = 'https://localhost:44360';
 
 async function getModuleList() {
@@ -25,12 +23,23 @@ async function getModuleList() {
         })
         .then(res => res.text())
         .then(data => {
+
+            //let temp = $('<div/>').html(data);
+            //temp.find('.activitySelector').addEventListener('click', updateActivityDetails);
+
             moduleListContainer.innerHTML = data;
+
+            /*for loop for activity details function */
+            let activities = document.getelementsbyclassname("activityselector");
+            for (var i = 0; i < activities.length; i++) {
+                courses[i].addeventlistener('click', updateactivitydetails);
+            }
         })
         .catch(err => console.log(err));
 };
 
-function updateDetails() {
+/* Course Details */
+function updateCourseDetails() {
     let id = (this.id).substr(1);
     fetch(localUrl + '/Courses/PartialDetails/' + id,
         {
@@ -38,8 +47,21 @@ function updateDetails() {
         })
         .then(res => res.text())
         .then(data => {
-            detailsContainer.innerHTML = data;
+            courseDetailsContainer.innerHTML = data;
         })
         .catch(err => console.log(err));
 };
 
+/*Activity Details */
+function updateActivityDetails() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Activities/PartialDetails/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            activityDetailsContainer.innerHTML = data;
+        })
+        .catch(err => console.log(err));
+};

@@ -81,6 +81,7 @@ hr{
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  font-family: Roboto;
 }
 .footer {
   position: absolute;
@@ -91,6 +92,12 @@ body {
 }
 
 /* Own Style*/
+.nextCourseInfo {
+    font-weight: 700;
+    margin: 20px 0;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
 .myListGroup {
     height: auto;
     font-size: 0.75rem;
@@ -144,7 +151,7 @@ body {
     padding: 0;
 }
 .moduleTitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px;
     margin: 0;
 }
@@ -152,7 +159,7 @@ body {
     font-size: 1.3rem;
     font-weight: 700;
 }
-.collapse {
+.myCollapse {
     min-height: 102px;
     overflow-y: scroll;
 }
