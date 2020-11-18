@@ -19,6 +19,20 @@ namespace LMS.Controllers
             db = context;
         }
 
+        // GET: Module List
+        public async Task<IActionResult> GetModulesByCourse(int Id)
+        {
+            var moduleList = await db.Modules.Where(x => x.CourseId == Id).ToListAsync();
+            var course = await db.Courses.Where(x => x.Id == Id).SingleAsync();
+            var model = new Models.ViewModels.ModuleListViewModel
+            {
+                Course = course,
+                ModuleList = moduleList
+            };
+            return PartialView("ModuleListPartial", model);
+        }
+
+
         // GET: Modules
         public async Task<IActionResult> Index()
         {

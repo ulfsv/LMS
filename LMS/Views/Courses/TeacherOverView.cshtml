@@ -19,9 +19,10 @@
         @foreach (var item in Model.Courses)
         {
             <ul class="list-group">
-                <li class="list-group-item">@item.Name</li>
+                <li id="C@(item.Id)" class="list-group-item courseSelector">@item.Name</li>
             </ul>
         }
+
     </div>
     @*
         <div class="col-2 Box">
@@ -42,6 +43,8 @@
                     totam tenetur voluptatum deserunt omnis dolorum laudantium, praesentium architecto
                     quaerat labore odit rem deleniti.
                 </p>
+                <br />
+                <div id="moduleListContainer" style="color: yellow"></div>
             </div>
             <div class="col-sm-3 colPaddingMiddle">
                 <div class="activityBox">
