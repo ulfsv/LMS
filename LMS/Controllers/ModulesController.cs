@@ -22,7 +22,10 @@ namespace LMS.Controllers
         // GET: Module List
         public async Task<IActionResult> GetModulesByCourse(int Id)
         {
-            var moduleList = await db.Modules.Where(x => x.CourseId == Id).ToListAsync();
+            var moduleList = await db.Modules
+                .Include(a => a.Activities)
+                .Where(c => c.CourseId == Id)
+                .ToListAsync();
             var course = await db.Courses.Where(x => x.Id == Id).SingleAsync();
             var model = new Models.ViewModels.ModuleListViewModel
             {

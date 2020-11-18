@@ -3,17 +3,23 @@
 
 // Write your JavaScript code.
 
-let courses = document.getElementsByClassName("courseSelector");
+// OBS! OBS! OBS! OBS! OBS! Fixa document ready etc.
 
-for (var i = 0; i < courses.length; i++) {
-    courses[i].addEventListener('click', getModuleList);
-}
+$(document).ready(function () {
 
-let elementToUpdate = document.querySelector('#moduleListContainer');
+    let courses = document.getElementsByClassName("courseSelector");
+
+    for (var i = 0; i < courses.length; i++) {
+        courses[i].addEventListener('click', getModuleList);
+        courses[i].addEventListener('click', updateDetails);
+    }
+})
+
+let localUrl = 'https://localhost:44360';
 
 async function getModuleList() {
     let id = (this.id).substr(1);
-    fetch('https://localhost:44360/Modules/GetModulesByCourse/' + id,
+    fetch(localUrl + '/Modules/GetModulesByCourse/' + id,
         {
             method: 'GET',
         })
@@ -23,3 +29,17 @@ async function getModuleList() {
         })
         .catch(err => console.log(err));
 };
+
+function updateDetails() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Courses/PartialDetails/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            detailsContainer.innerHTML = data;
+        })
+        .catch(err => console.log(err));
+};
+

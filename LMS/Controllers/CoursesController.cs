@@ -25,10 +25,6 @@ namespace LMS.Controllers
         {
             var model = new TeacherOverViewModel();
             model.Courses = await db.Courses.ToListAsync();
-            model.Modules = await db.Modules.ToListAsync();
-            model.Activities = await db.Activities.ToListAsync();
-            model.Students = await db.ApplicationUsers.ToListAsync();
-            model.Documents = await db.Documents.ToListAsync();
 
             model.NextCourse = "Your next Activity: XXXXXX, starts at XX.XX today!";
 
@@ -58,6 +54,24 @@ namespace LMS.Controllers
             }
 
             return View(course);
+        }
+
+        // GET: Courses/PartialDetails/5
+        public async Task<IActionResult> PartialDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await db.Courses
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("CoursePartialDetails", course);
         }
 
         // GET: Courses/Create
