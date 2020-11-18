@@ -18,10 +18,12 @@ namespace LMS.Data
 
             using (var context = new ApplicationDbContext(services.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-                if (context.Courses.Any()) return;
+               if (context.Courses.Any()) return;
 
                 var fake = new Faker();
-
+                var lorem = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. " +
+                    "Ea commodi doloribus dolor eum eaque consequatur eveniet laboriosam " +
+                    "perferendis omnis vel quam";
                 var courses = new List<Course>();
 
                 for (int i = 1; i < 21; i++)
@@ -29,7 +31,7 @@ namespace LMS.Data
                     var course = new Course
                     {
                         Name = fake.Company.CatchPhrase(),
-                        Description = fake.Hacker.Verb(),
+                        Description = lorem,
                         //Duration = new TimeSpan(0, 55, 0),
                         StartDate = DateTime.Now.AddDays(fake.Random.Int(-2, 2))
                     };
@@ -95,7 +97,7 @@ namespace LMS.Data
                         var module = new Module
                         {
                             Name = fake.Company.CatchPhrase(),
-                            Description = fake.Hacker.Verb(),
+                            Description = lorem,
                             //Duration = new TimeSpan(0, 55, 0),
                             StartDate = course.StartDate.AddDays(i * 28),
                             EndDate = course.StartDate.AddDays(i * 28 + 27),
@@ -133,11 +135,11 @@ namespace LMS.Data
                         var activity = new Aktivitet
                         {
                             Name = fake.Company.CatchPhrase(),
-                            Description = fake.Hacker.Verb(),
+                            Description = lorem,
                             ModuleId = module.Id,
                             StartTime = module.StartDate.AddDays(i * 4),
                             EndTime = module.StartDate.AddDays(i * 4 + 3),
-                            ActivityTypeId = activityTypes[rnd.Next(activityTypes.Count)].Id                           
+                            ActivityTypeId = activityTypes[rnd.Next(activityTypes.Count)].Id
                         };
                         activities.Add(activity);
                     }

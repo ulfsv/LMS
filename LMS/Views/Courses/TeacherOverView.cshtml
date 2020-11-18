@@ -18,17 +18,18 @@
         <h3 class="boxTitle">Courses</h3>
         @foreach (var item in Model.Courses)
         {
-            <ul class="list-group">
-                <li id="C@(item.Id)" class="list-group-item courseSelector">@item.Name</li>
+            <ul class="list-group myListGroup">
+                <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
             </ul>
         }
     </div>
     <div class="col-8 infoBox ml-sm-2">
         <div class="row">
             <div class="col-sm-6 colPadding">
+                <h2 class="boxTitle">Course Information</h2>
                 <div id="detailsContainer"></div>
                 <br />
-                <div id="moduleListContainer"></div>
+
             </div>
             <div class="col-sm-3 colPaddingMiddle">
                 <div class="activityBox">
@@ -41,8 +42,10 @@
                 </div>
             </div>
         </div>
+        <hr />
+        <div class="module" id="moduleListContainer">
+            <h3 class="boxTitle">Modules and Activities</h3>
+        </div>
 
-        @* Skall lägga in modullistan här *@        
-        
     </div>
 </div>

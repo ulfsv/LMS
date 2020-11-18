@@ -3,13 +3,14 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-<h3 class="boxTitle">
-    @Model.Name
-</h3>
-<p class="boxParagraph">
-    @Model.Description
-</p>
-<p class="boxParagraph">
-    @Model.StartDate
-</p>
-
+<div class="courseNameBoxs">
+    <hr />
+    <h3 class="font-weight-bold">Course Name</h3>
+    <h4>@Model.Name</h4>
+    <hr />
+    <h4 class="font-weight-bold">Course Description</h4>
+    <p class="courseDescriptionBox">@Model.Description</p>
+    <hr />
+    <H6>Course Start Date</H6>
+    <p class="boxParagraph">@Model.StartDate</p>
+</div>

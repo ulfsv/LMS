@@ -4,7 +4,9 @@
 *@
 
 <div>
-    <div class="col-12 modulBox">
+    <div class="col-6 modulBox">
+        <h3 class="boxTitle">Modules and Activities</h3>
+    
         <div class="bgBox">
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -15,7 +17,7 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link btn-block text-left myBtn" type="button" data-toggle="collapse"
                                         data-target="#M@(item.Id)" aria-expanded="true" aria-controls="collapseOne">
-                                    <h3 class="boxTitle">@item.Name</h3>
+                                    <h4 class="moduleTitle">@item.Name</h4>
                                 </button>
                             </h2>
                         </div>
@@ -25,7 +27,7 @@
                             @foreach (var activity in item.Activities)
                             {
                                 <div class="card-body">
-                                    <h6 class="activityH6">@activity.Name</h6>
+                                    <h6>@activity.Name</h6>
                                 </div>
                             }
                         </div>

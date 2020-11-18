@@ -16,7 +16,6 @@ namespace LMS.Models
         public string Name { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 50, MinimumLength = 3)]
         public string Description { get; set; }
 
         [Required]

@@ -14,7 +14,8 @@ a.navbar-brand {
 
 a:hover,
 .viewBtn:hover {
-    color: darkorange;
+    color: black;
+    font-weight: 700;
     text-decoration: none;
 }
 .viewBtn {
@@ -24,13 +25,17 @@ a:hover,
     background-color: #02020282;
     color: white;
 }
-
+.btn {
+    padding: 0;
+}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-
+.cursor {
+    cursor: pointer;
+}
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -70,7 +75,9 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+hr{
+    margin-bottom: 0;s
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -84,7 +91,17 @@ body {
 }
 
 /* Own Style*/
-
+.myListGroup {
+    height: auto;
+    font-size: 0.75rem;
+    margin: 0 0 3px;
+}
+.myListGroupItem {
+    padding: 2px 4px;
+}
+.courseNameBox {
+    border: 1px solid black;
+}
 .coursesBox {
     border: 1px solid black;
     height: 700px;
@@ -106,8 +123,13 @@ body {
     border: 1px solid black;
     height: 700px;
     /*overflow-y: scroll;*/
-    background-color: gray;
+    background-color: wheat;
 }
+.card {
+    max-height: 215px;
+    overflow-y: scroll;
+}
+
 .coursesBox,
 .moduleBox,
 .infoBox,
@@ -115,29 +137,41 @@ body {
     padding-top: 25px;
 }
 .modulBox {
-    padding: 30px 0;
+    padding: 10px 0 0;
+    height: 295px;
+}
+.card-header {
+    padding: 0;
+}
+.moduleTitle {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin: 0;
 }
 .activityH6 {
     font-size: 1.3rem;
     font-weight: 700;
+}
+.collapse {
+    min-height: 102px;
+    overflow-y: scroll;
 }
 .myBtn {
     text-decoration: none !important;
     color: black;
 }
 .myBtn:hover {
-    color: wheat;
+    color: black;
 }
 .bgBox {
     border: 1px solid black;
     margin-bottom: 15px;
 }
 .card-header {
-    background-color: gray;
+    background-color: lightgray;
 }
 .card-body {
-    padding: .80rem;
-    overflow-y: scroll;
+    padding: 0 15px;
     max-height: 195px;
 }
 .insideBoxes {
@@ -146,10 +180,18 @@ body {
     /*overflow-y: scroll;*/
     background-color: wheat;
 }
-
-.boxTitle {
-    font-size: 1.75rem;
+.courseName {
+    font-size: 1.5rem;
+    font-style: italic;
     font-weight: 700;
+}
+.boxTitle {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.courseDescriptionBox {
+    font-size: 1rem;
+    font-style: italic;
 }
 .boxParagraph {
     width: 100%;
