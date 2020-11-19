@@ -12,6 +12,7 @@ $(document).ready(function () {
         courses[i].addEventListener('click', updateCourseDetails);
     }
 })
+
 /* local host */
 let localUrl = 'https://localhost:44360';
 
@@ -32,7 +33,7 @@ async function getModuleList() {
             /*for loop for activity details function */
             let activities = document.getElementsByClassName("activitySelector");
             for (var i = 0; i < activities.length; i++) {
-                courses[i].addEventListener('click', updateActivityDetails);
+                activities[i].addEventListener('click', updateActivityDetails);
             }
         })
         .catch(err => console.log(err));
