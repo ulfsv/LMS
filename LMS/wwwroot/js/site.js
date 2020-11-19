@@ -30,9 +30,9 @@ async function getModuleList() {
             moduleListContainer.innerHTML = data;
 
             /*for loop for activity details function */
-            let activities = document.getelementsbyclassname("activityselector");
+            let activities = document.getElementsByClassName("activitySelector");
             for (var i = 0; i < activities.length; i++) {
-                courses[i].addeventlistener('click', updateactivitydetails);
+                courses[i].addEventListener('click', updateActivityDetails);
             }
         })
         .catch(err => console.log(err));
