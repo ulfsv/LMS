@@ -1,15 +1,11 @@
 ﻿@model LMS.Models.Aktivitet
 
 
-<div class="courseNameBox">
-    <hr />
+<div class="">
     <h3 class="boxTitle">Activity Details</h3>
-    <p>@Model.Name</p>
-    <hr />
-    <h4 class="moduleTitle">Activity Description</h4>
+    <h6>@Model.Name</h6>
+    <h4 class="activityDescription">Activity Description</h4>
     <p class="courseDescriptionBox">@Model.Description</p>
-    <hr />
-    <H6>Activity Start: @Model.StartTime</H6>
-    <hr />
-    <H6>Activity End: @Model.EndTime</H6>
+    <H6 class="font-weight-bold">Activity Start: @Model.StartTime</H6>
+    <H6 class="font-weight-bold">Activity End: @Model.EndTime</H6>
 </div>
