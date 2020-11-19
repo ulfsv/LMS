@@ -62,6 +62,25 @@ namespace LMS.Controllers
             return View(@module);
         }
 
+
+        // GET: Modules/PartialDetails/5
+        public async Task<IActionResult> PartialDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var module = await db.Modules
+                .FirstOrDefaultAsync(a => a.Id == id);
+            if (module == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("ModulePartialDetails", module);
+        }
+
         // GET: Modules/Create
         public IActionResult Create()
         {
