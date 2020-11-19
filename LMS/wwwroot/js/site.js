@@ -49,6 +49,7 @@ function updateCourseDetails() {
         .then(res => res.text())
         .then(data => {
             courseDetailsContainer.innerHTML = data;
+            activityDetailsContainer.innerHTML = "";
         })
         .catch(err => console.log(err));
 };
