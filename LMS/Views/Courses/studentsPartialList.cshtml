@@ -1,9 +1,9 @@
-﻿@model LMS.Models.Course
+﻿@model List<LMS.Models.ApplicationUser>
 
 <h3 class="boxTitle pt-2">Course Students</h3>
-                @foreach (var student in Model.ApplicationUsers)
-                {
-                    <ul class="list-group myListGroup">
-                        <li id="@(student.Id)" class="list-group-item courseSelector myListGroupItem cursor">@student.Id</li>
-                    </ul>
-                }
+@foreach (var student in Model)
+{
+    <ul class="list-group myListGroup">
+        <li id="S@(student.Id)" class="list-group-item studentSelector myListGroupItem cursor">@student.FullName</li>
+    </ul>
+}

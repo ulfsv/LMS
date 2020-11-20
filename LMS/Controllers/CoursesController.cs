@@ -9,16 +9,24 @@ using LMS.Data;
 using LMS.Models;
 using LMS.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using IdentityModel;
 
 namespace LMS.Controllers
 {
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
-        public CoursesController(ApplicationDbContext context)
+        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+            //
+        // Osäker om såhär RoleManager<IdentityRole> roleManager
         {
             db = context;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         // Teacher OverView
@@ -78,21 +86,17 @@ namespace LMS.Controllers
 
         //Student List
         // GET: Student/List/5
-        public async Task<IActionResult> Students(int? id)
+        public async Task<IActionResult> GetStudentsList(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var student = await db.Roles
-                .FirstOrDefaultAsync(s => s.Id == "6bba219d-3f1c-41a0-91d1-74306387792c");
-            if (student == null)
-            {
-                return NotFound();
-            }
+            var students = await userManager.GetUsersInRoleAsync("Student");
+            var participatingStudents = students.Where(s => s.CourseId == id).ToList();
 
-            return View(student);
+            return PartialView("StudentsPartialList", participatingStudents);
         }
 
         // GET: Student/PartialDetails/5

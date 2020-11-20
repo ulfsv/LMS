@@ -10,6 +10,8 @@ $(document).ready(function () {
     for (var i = 0; i < courses.length; i++) {
         courses[i].addEventListener('click', getModuleList);
         courses[i].addEventListener('click', updateCourseDetails);
+        courses[i].addEventListener('click', updateStudentsList);
+
     }
 })
 
@@ -26,12 +28,7 @@ async function getModuleList() {
         .then(res => res.text())
         .then(data => {
 
-            //let temp = $('<div/>').html(data);
-            //temp.find('.activitySelector').addEventListener('click', updateActivityDetails);
-
             moduleListContainer.innerHTML = data;
-
-
 
             /*for loop for activity details function */
             let activities = document.getElementsByClassName("activitySelector");
@@ -43,6 +40,11 @@ async function getModuleList() {
             for (var i = 0; i < modules.length; i++) {
                 modules[i].addEventListener('click', updateModuleDetails);
             }
+
+            //let modules = document.getElementsByClassName("studentSelector");
+            //for (var i = 0; i < modules.length; i++) {
+            //    modules[i].addEventListener('click', getStudentDetails);
+            //}
         })
         .catch(err => console.log(err));
 };
@@ -90,3 +92,18 @@ function updateModuleDetails() {
         })
         .catch(err => console.log(err));
 };
+
+function updateStudentsList() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Courses/GetStudentsList/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            studentsListContainer.innerHTML = data;
+
+        })
+        .catch(err => console.log(err));
+};
+
