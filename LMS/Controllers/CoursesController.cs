@@ -22,7 +22,7 @@ namespace LMS.Controllers
         }
 
         // Teacher OverView
-        [Authorize(Roles = "Teacher")]
+        //[Authorize(Roles = "Teacher")]
         public async Task<IActionResult> TeacherOverView()
         {
             var model = new TeacherOverViewModel();

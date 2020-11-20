@@ -271,3 +271,36 @@ body {
     font-size: .8rem;
     background-color: #d7d7d7;
 }
+.docListHeader {
+    font-weight: 800;
+    color: aliceblue;
+    background-color: #808080;
+    text-align: center;
+}
+
+.docListBody {
+    height: 322px;
+    min-width: 138px;
+    font-weight: 400;
+    color: darkblue;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.docEmptyListMessage {
+    font-weight: 800;
+    color: #B0B0B0;
+    width: 100%;
+    text-align: center;
+}
+
+.docListRow {
+    white-space: nowrap;
+}
+
+.moduleTitleSelected {
+    background-color: coral;
+    font-size: 1rem;
+    padding: 5px;
+    margin: 0;
+}
