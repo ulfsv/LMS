@@ -15,30 +15,42 @@
 </div>
 
 <div class="row">
-    <div class="col-3 coursesBox">
-        <h3 class="boxTitle">Courses</h3>
-        @foreach (var item in Model.Courses)
-        {
-            <ul class="list-group myListGroup">
-                <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
-            </ul>
-        }
+    <div class="col-3 mr-1">
+        <div class="coursesBox">
+            <div class="courseBoxHeightTop">
+                <h3 class="boxTitle">Courses</h3>
+                @foreach (var item in Model.Courses)
+                {
+                    <ul class="list-group myListGroup">
+                        <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
+                    </ul>
+                }
+            </div>
+            <hr />
+        <div class="courseBoxHeightBottom" id="studentList">
+            <h3 class="boxTitle pt-2">Course Students</h3>
+        </div>
+        </div>
     </div>
     <div class="col-8 infoBox ml-sm-2">
         <div class="row">
-            <div class="col-sm-6 colPadding">
+            <div class="col-sm-5 colPadding">
                 <h2 class="boxTitle">Course Information</h2>
                 <div id="courseDetailsContainer"></div>
                 <br />
             </div>
-            <div class="col-sm-3 colPaddingMiddle">
-                <div class="activityBox">
-                    <h5 class="insideBoxes">List of Students</h5>
-                </div>
-            </div>
-            <div class="col-sm-3 colPadding">
-                <div id="listDocId" class="activityBox">
-                    <h5 class="insideBoxes">List of Documents</h5>
+
+            <div class="col-sm-7">
+                <div class="row">
+                    <div id="courseDocId" class="col-sm-4 activityBox courseDocuments">
+                        <h5 class="insideBoxes">Course Documents</h5>
+                    </div>
+                    <div id="moduleDocId" class="col-sm-4 activityBox moduleDocuments">
+                        <h5 class="insideBoxes">Modules Documents</h5>
+                    </div>
+                    <div id="activityDocId" class="col-sm-4 activityBox activityDocuments">
+                        <h5 class="insideBoxes">Activity Documents</h5>
+                    </div>
                 </div>
             </div>
         </div>
