@@ -1,13 +1,9 @@
-﻿<div class="courseBoxHeight">
-    <h3 class="boxTitle">Courses</h3>
+﻿@model LMS.Models.Course
 
-
-    <div class="row">
-
-            <h3 class="boxTitle">Modules</h3>
-
-
-            <h3 class="boxTitle">Activities</h3>
-
-    </div>
-</div>
+<h3 class="boxTitle pt-2">Course Students</h3>
+                @foreach (var student in Model.ApplicationUsers)
+                {
+                    <ul class="list-group myListGroup">
+                        <li id="@(student.Id)" class="list-group-item courseSelector myListGroupItem cursor">@student.Id</li>
+                    </ul>
+                }

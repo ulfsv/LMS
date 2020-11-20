@@ -74,6 +74,29 @@ namespace LMS.Controllers
             return PartialView("CoursePartialDetails", course);
         }
 
+        //Student List
+        // GET: Student/List/5
+        public async Task<IActionResult> Students(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await db.Roles
+                .FirstOrDefaultAsync(s => s.Id == "6bba219d-3f1c-41a0-91d1-74306387792c");
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        // GET: Student/PartialDetails/5
+        
+        // END Student List
+
         // GET: Courses/Create
         public IActionResult Create()
         {

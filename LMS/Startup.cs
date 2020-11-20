@@ -58,7 +58,7 @@ namespace LMS
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Courses}/{action=TeacherOverView}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
