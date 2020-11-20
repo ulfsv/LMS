@@ -13,6 +13,7 @@ $(document).ready(function () {
     }
 })
 
+
 /* local host */
 let localUrl = 'https://localhost:44360';
 
@@ -30,10 +31,17 @@ async function getModuleList() {
 
             moduleListContainer.innerHTML = data;
 
+
+
             /*for loop for activity details function */
             let activities = document.getElementsByClassName("activitySelector");
             for (var i = 0; i < activities.length; i++) {
                 activities[i].addEventListener('click', updateActivityDetails);
+            }
+
+            let modules = document.getElementsByClassName("moduleSelector");
+            for (var i = 0; i < modules.length; i++) {
+                modules[i].addEventListener('click', updateModuleDetails);
             }
         })
         .catch(err => console.log(err));
@@ -49,6 +57,8 @@ function updateCourseDetails() {
         .then(res => res.text())
         .then(data => {
             courseDetailsContainer.innerHTML = data;
+            detailsContainer.innerHTML = "";
+
         })
         .catch(err => console.log(err));
 };
@@ -62,7 +72,21 @@ function updateActivityDetails() {
         })
         .then(res => res.text())
         .then(data => {
-            activityDetailsContainer.innerHTML = data;
+            detailsContainer.innerHTML = data;
+        })
+        .catch(err => console.log(err));
+};
+
+function updateModuleDetails() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Modules/PartialDetails/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            detailsContainer.innerHTML = data;
+
         })
         .catch(err => console.log(err));
 };

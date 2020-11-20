@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Models;
 using LMS.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LMS.Controllers
 {
@@ -21,6 +22,7 @@ namespace LMS.Controllers
         }
 
         // Teacher OverView
+        [Authorize(Roles = "Teacher")]
         public async Task<IActionResult> TeacherOverView()
         {
             var model = new TeacherOverViewModel();

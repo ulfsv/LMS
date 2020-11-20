@@ -1,0 +1,10 @@
+﻿@model LMS.Models.Module
+
+
+<div class="">
+    <h4 class="boxTitle">Module Details - @Model.Name</h4>
+    <h4 class="activityDescription">Module Description</h4>
+    <p class="courseDescriptionBox">@Model.Description</p>
+    <H6 class="font-weight-bold">Module Start: &nbsp;@Model.StartDate.ToString("yyyy-MM-dd")</H6>
+    <H6 class="font-weight-bold">Module End: &nbsp;&nbsp;&nbsp;@Model.EndDate.ToString("yyyy-MM-dd")</H6>
+</div>
