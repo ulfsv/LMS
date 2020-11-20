@@ -92,6 +92,20 @@ body {
 }
 
 /* Own Style*/
+.courseDocuments
+.moduleDocuments
+.activityDocuments {
+
+}
+
+.courseBoxHeightTop {
+    max-height: 50%;
+    overflow-y: scroll;
+}
+.courseBoxHeightBottom {
+    max-height: 50%;
+    overflow-y: scroll;
+}
 .nextCourseInfo {
     font-weight: 700;
     margin: 20px 0;
@@ -112,7 +126,6 @@ body {
 .coursesBox {
     border: 1px solid black;
     height: 700px;
-    overflow-y: scroll;
     background-color: wheat;
 }
 .activityDescription {
@@ -136,7 +149,7 @@ body {
     background-color: wheat;
 }
 .card {
-    max-height: 215px;
+    max-height: 235px;
     overflow-y: scroll;
 }
 
