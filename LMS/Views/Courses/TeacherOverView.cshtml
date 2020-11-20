@@ -1,4 +1,5 @@
 ﻿@model LMS.Models.ViewModels.TeacherOverViewModel
+@inject LMS.Services.INextActivityService activityService
 
 @{
     ViewData["Title"] = "Teacher Course Overview";
@@ -10,7 +11,7 @@
     <a asp-action="Create">Create New Course</a>
 </p>
 <div class="nextCourseInfo">
-    @Model.NextCourse
+    Your next actvity @activityService.GetActivity(User).Name starts at @activityService.GetActivity(User).StartTime.ToString("yyyy-MM-dd | HH:mm")
 </div>
 
 <div class="row">
