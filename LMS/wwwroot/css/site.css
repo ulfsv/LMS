@@ -147,6 +147,7 @@ body {
 }
 .myListGroupItem {
     padding: 2px 4px;
+    margin-right: 3px;
 }
 .courseNameBox {
     border: 1px solid black;
@@ -155,6 +156,7 @@ body {
     border: 1px solid black;
     height: 700px;
     background-color: wheat;
+    padding: 0 10px;
 }
 .activityDescription {
     font-size: 20px;
