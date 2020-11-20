@@ -21,8 +21,6 @@ namespace LMS.Controllers
         private readonly RoleManager<IdentityRole> roleManager;
 
         public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
-            //
-        // Osäker om såhär RoleManager<IdentityRole> roleManager
         {
             db = context;
             this.userManager = userManager;
