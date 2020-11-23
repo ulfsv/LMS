@@ -2,7 +2,7 @@
 
 <div>
 
-    <h3 class="boxTitle">Modules</h3>
+    <h3 class="boxTitle">Modules and Activities</h3>
 
     <div class="bgBox">
         <div class="accordion" id="accordionExample">
@@ -12,9 +12,9 @@
                 {
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button id="X@(item.Id)" class="btn btn-link btn-block text-left myBtn moduleSelector" type="button" data-toggle="collapse"
+                            <button id="X@(item.Id)" class="btn btn-block text-left myBtn moduleSelector" type="button" data-toggle="collapse"
                                     data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
-                                <h4 class="moduleTitle">@item.StartDate.ToString("yyyy-MM-dd") - @item.EndDate.ToString("yyyy-MM-dd") | @item.Name</h4>
+                                <h4 class="moduleTitle">@item.Name</h4>
                             </button>
                         </h2>
                     </div>
