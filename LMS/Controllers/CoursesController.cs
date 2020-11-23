@@ -29,7 +29,7 @@ namespace LMS.Controllers
 
         // Teacher OverView
         //[Authorize(Roles = "Teacher")]
-        public async Task<IActionResult> TeacherOverView()
+        public async Task<IActionResult> TeacherOverView(bool ShowAllCourses)
         {
             var model = new TeacherOverViewModel();
 
@@ -37,14 +37,14 @@ namespace LMS.Controllers
             var courseId = await db.ApplicationUsers.Where(u=>u.Id==userId)
                 .Select(u=>u.CourseId).SingleAsync();
             var attendingCourse = await db.Courses.Where(c=> c.Id == courseId).ToListAsync();
-
-            //if (!model.showallcourses)
-            //    model.courses = attendingcourse;
-            //if (model.showallcourses)
+            if (!ShowAllCourses)
+                model.Courses = attendingCourse;
+            if (ShowAllCourses)
                 model.Courses = await db.Courses.ToListAsync();
 
             return View(model);
         }
+
         // END Teacher OverView
 
         // GET: Courses
