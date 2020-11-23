@@ -1,13 +1,14 @@
-﻿@model LMS.Models.Course
+﻿@model LMS.Models.ViewModels.CourseDetailsViewModel
 
 <div class="modulBox">
     <hr />
     <h3 class="font-weight-bold">Course Name</h3>
-    <h4>@Model.Name</h4>
+    <h4>@Model.Course.Name</h4>
+    <h5>Teacher: @Model.TeacherName</h5>
     <hr />
     <h4 class="font-weight-bold">Course Description</h4>
-    <p class="courseDescriptionBox">@Model.Description</p>
+    <p class="courseDescriptionBox">@Model.Course.Description</p>
     <hr />
     <H6  class="font-weight-bold">Course Start Date</H6>
-    <p class="boxParagraph">@Model.StartDate.ToString("yyyy-MM-dd")</p>
+    <p class="boxParagraph">@Model.Course.StartDate.ToString("yyyy-MM-dd")</p>
 </div>

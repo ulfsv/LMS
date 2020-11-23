@@ -34,9 +34,9 @@ namespace LMS.Controllers
             var model = new TeacherOverViewModel();
 
             var userId = userManager.GetUserId(User);
-            var courseId = await db.ApplicationUsers.Where(u=>u.Id==userId)
-                .Select(u=>u.CourseId).SingleAsync();
-            var attendingCourse = await db.Courses.Where(c=> c.Id == courseId).ToListAsync();
+            var courseId = await db.ApplicationUsers.Where(u => u.Id == userId)
+                .Select(u => u.CourseId).SingleAsync();
+            var attendingCourse = await db.Courses.Where(c => c.Id == courseId).ToListAsync();
             if (!ShowAllCourses)
                 model.Courses = attendingCourse;
             if (ShowAllCourses)
@@ -81,12 +81,24 @@ namespace LMS.Controllers
 
             var course = await db.Courses
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            var teachers = await userManager.GetUsersInRoleAsync("Teacher");
+            var teacher = teachers.Where(s => s.CourseId == id).SingleOrDefault();
+
+            var viewmodel = new CourseDetailsViewModel();
+            viewmodel.Course = course;
+
+            if (teacher is null)
+                viewmodel.TeacherName = "";
+            else
+                viewmodel.TeacherName = teacher.FullName;
+
             if (course == null)
             {
                 return NotFound();
             }
 
-            return PartialView("CoursePartialDetails", course);
+            return PartialView("CoursePartialDetails", viewmodel);
         }
 
         //Student List
@@ -105,7 +117,7 @@ namespace LMS.Controllers
         }
 
         // GET: Student/PartialDetails/5
-        
+
         // END Student List
 
         // GET: Courses/Create
