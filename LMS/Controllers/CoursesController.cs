@@ -89,7 +89,7 @@ namespace LMS.Controllers
             viewModel.Course = course;
 
             if (teacher is null)
-                viewModel.TeacherName = "";
+                viewModel.TeacherName = "No teacher chosen";
             else
                 viewModel.TeacherName = teacher.FullName;
 
