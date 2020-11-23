@@ -70,7 +70,8 @@ function updateCourseDetails() {
         .then(res => res.text())
         .then(data => {
             courseDetailsContainer.innerHTML = data;
-            detailsContainer.innerHTML = "";
+            moduleDetailsContainer.innerHTML = "";
+            activityDetailsContainer.innerHTML = "";
 
         })
         .catch(err => console.log(err));
@@ -85,7 +86,7 @@ function updateActivityDetails() {
         })
         .then(res => res.text())
         .then(data => {
-            detailsContainer.innerHTML = data;
+            activityDetailsContainer.innerHTML = data;
         })
         .catch(err => console.log(err));
 };
@@ -98,7 +99,7 @@ function updateModuleDetails() {
         })
         .then(res => res.text())
         .then(data => {
-            detailsContainer.innerHTML = data;
+            moduleDetailsContainer.innerHTML = data;
 
         })
         .catch(err => console.log(err));

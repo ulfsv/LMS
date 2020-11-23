@@ -25,7 +25,7 @@
 </div>
 
 <div class="row">
-    <div class="col-3 mr-1">
+    <div class="col-3">
         <div class="coursesBox">
             <div class="courseBoxHeightTop">
                 <h3 class="boxTitle">Courses</h3>
@@ -36,39 +36,36 @@
                     </ul>
                 }
             </div>
+            <button class="btn myBtnAdd">Add New Course</button>
             <hr />
-            <div id="studentsListContainer">
-                <h3 class="boxTitle">Course Students</h3>
+            <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
+                <h3 class="boxTitle">Modules and Activities</h3>
             </div>
         </div>
     </div>
-    <div class="col-8 infoBox ml-sm-2">
+    <!--Course and Student list-->
+    <div class="col-sm-9 infoBox">
         <div class="row">
-            <div class="col-sm-5 colPadding">
-                <h2 class="boxTitle">Course Information</h2>
+            <div class="col-sm-6 borderLeftBox">
+                <h3 class="boxTitle">Course</h3>
                 <div id="courseDetailsContainer"></div>
-                <br />
             </div>
 
-            <div class="col-sm-7">
-                <div class="row">
-                    <div id="courseDocId" class="col-sm-4 activityBox courseDocuments">
-                    </div>
-                    <div id="moduleDocId" class="col-sm-4 activityBox moduleDocuments">
-                    </div>
-                    <div id="activityDocId" class="col-sm-4 activityBox activityDocuments">
-                    </div>
-                </div>
+            <div class="col-sm-6 borderRightBox">
+                <h3 class="boxTitle">Students</h3>
+                <div id="studentsListContainer"></div>
             </div>
         </div>
-        <hr />
+
+        <!--Module and Activity-->
         <div class="row">
-            <div class="col-6 modulBox colPadding" id="moduleListContainer">
-                <h3 class="boxTitle">Modules</h3>
-            </div>
-            <div class="col-6 modulBox colPadding" id="detailsContainer">
+            <div class="col-sm-6 borderLeftBox">
+                <div id="moduleDetailsContainer"></div>
             </div>
 
+            <div class="col-sm-6 borderRightBox">
+                <div id="activityDetailsContainer"></div>
+            </div>
         </div>
     </div>
 </div>

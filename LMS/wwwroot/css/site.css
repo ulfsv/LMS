@@ -28,6 +28,38 @@ a:hover,
     background-color: #02020282;
     color: white;
 }
+.myBtn {
+    text-decoration: none !important;
+}
+.myBtnAdd,
+.myBtnEdit,
+.btnStudent{
+    text-decoration: none !important;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: lightgray;
+    color: gray;
+}
+.myBtnAdd {
+    width: 70%;
+}
+.myBtnEdit {
+    width: 25%;
+}
+.myBtnStudent {
+    width: 50%;
+}
+.myBtnAdd:hover,
+.myBtnEdit:hover,
+.myBtnStudent:hover {
+    color: black;
+}
+
 .btn {
     padding: 0;
 }
@@ -124,14 +156,19 @@ body {
 .courseDocuments
 .moduleDocuments
 .activityDocuments {
+    height: 100%;
 }
-
+.studentListBox,
+.courseInfoBox{
+    max-height: 370px;
+    padding-top: 15px
+}
 .courseBoxHeightTop {
-    max-height: 60%;
+    max-height: 45%;
     overflow-y: scroll;
 }
 .courseBoxHeightBottom {
-    max-height: 40%;
+    max-height: 50%;
     overflow-y: scroll;
 }
 .nextCourseInfo {
@@ -147,14 +184,13 @@ body {
 }
 .myListGroupItem {
     padding: 2px 4px;
-    margin-right: 3px;
 }
 .courseNameBox {
     border: 1px solid black;
 }
 .coursesBox {
     border: 1px solid black;
-    height: 700px;
+    height: 795px;
     background-color: wheat;
     padding: 0 10px;
 }
@@ -168,13 +204,13 @@ body {
     background-color: dimgray;
 }
 .activityBox {
-    border: 1px solid gray;
+    /*border-left: 1px solid gray;*/
     height: 350px;
-    background-color: lightgray;
+    padding: 2px 4px;
+    margin-right: 3px;
 }
 .infoBox {
     border: 1px solid black;
-    height: 700px;
     /*overflow-y: scroll;*/
     background-color: wheat;
 }
@@ -182,12 +218,15 @@ body {
     max-height: 235px;
     overflow-y: scroll;
 }
-
+.infoBox,
+.coursesBox {
+    height: 790px;
+}
 .coursesBox,
 .moduleBox,
 .infoBox,
 .myTopPadding {
-    padding-top: 25px;
+    padding-top: 15px;
 }
 .modulBox {
     padding: 10px 0 0;
@@ -209,13 +248,7 @@ body {
     min-height: 102px;
     overflow-y: scroll;
 }
-.myBtn {
-    text-decoration: none !important;
-    color: black;
-}
-.myBtn:hover {
-    color: black;
-}
+
 .bgBox {
     border: 1px solid black;
     margin-bottom: 15px;
@@ -239,11 +272,14 @@ body {
     font-weight: 700;
 }
 .boxTitle {
-    font-size: 2rem;
+    font-size: 14px;
     font-weight: 700;
 }
+.spanHeader {
+    font-size: 20px
+}
 .courseDescriptionBox {
-    font-size: 1rem;
+    font-size: 12px;
     font-style: italic;
 }
 .boxParagraph {
@@ -276,23 +312,29 @@ body {
     color: aliceblue;
     background-color: #808080;
     text-align: center;
+    border-radius: 5px;
+    margin-bottom: 3px;
 }
 
 .docListBody {
     height: 322px;
     min-width: 138px;
-    font-weight: 400;
     color: darkblue;
     overflow-x: auto;
     overflow-y: auto;
-    background-color:aliceblue;
+    color: black;
+    background-color: wheat;
+    letter-spacing: 1px;
+    max-height: 300px;
 }
 
 .docEmptyListMessage {
     font-weight: 800;
-    color: #B0B0B0;
+    color: #7c7cff;
     width: 100%;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .docListRow {
@@ -307,4 +349,11 @@ body {
     font-size: 1rem;
     padding: 5px;
     margin: 0;
+}
+
+.borderRightBox {
+    border-left: solid 2px black;
+}
+.borderTopBox {
+    border-top: solid 2px black;
 }
