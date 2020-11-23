@@ -85,20 +85,20 @@ namespace LMS.Controllers
             var teachers = await userManager.GetUsersInRoleAsync("Teacher");
             var teacher = teachers.Where(s => s.CourseId == id).SingleOrDefault();
 
-            var viewmodel = new CourseDetailsViewModel();
-            viewmodel.Course = course;
+            var viewModel = new CourseDetailsViewModel();
+            viewModel.Course = course;
 
             if (teacher is null)
-                viewmodel.TeacherName = "";
+                viewModel.TeacherName = "";
             else
-                viewmodel.TeacherName = teacher.FullName;
+                viewModel.TeacherName = teacher.FullName;
 
             if (course == null)
             {
                 return NotFound();
             }
 
-            return PartialView("CoursePartialDetails", viewmodel);
+            return PartialView("CoursePartialDetails", viewModel);
         }
 
         //Student List
