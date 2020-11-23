@@ -10,6 +10,14 @@
 <p>
     <a asp-action="Create">Create New Course</a>
 </p>
+
+<div class="form-group form-check">
+    <form asp-action="TeacherOverView">
+        <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses"/>
+        <label class="form-check-label">Show All Courses</label>
+    </form>
+</div>
+
 <div class="nextCourseInfo">
     Your next actvity @activityService.GetActivity(User).Name starts at @activityService.GetActivity(User).StartTime.ToString("yyyy-MM-dd | HH:mm")
 </div>
@@ -61,7 +69,7 @@
             </div>
             <div class="col-6 modulBox colPadding" id="detailsContainer">
             </div>
-            
+
         </div>
     </div>
 </div>

@@ -32,9 +32,16 @@ namespace LMS.Controllers
         public async Task<IActionResult> TeacherOverView()
         {
             var model = new TeacherOverViewModel();
-            model.Courses = await db.Courses.ToListAsync();
 
-            model.NextCourse = "Your next Activity: XXXXXX, starts at XX.XX today!";
+            var userId = userManager.GetUserId(User);
+            var courseId = await db.ApplicationUsers.Where(u=>u.Id==userId)
+                .Select(u=>u.CourseId).SingleAsync();
+            var attendingCourse = await db.Courses.Where(c=> c.Id == courseId).ToListAsync();
+
+            //if (!model.showallcourses)
+            //    model.courses = attendingcourse;
+            //if (model.showallcourses)
+                model.Courses = await db.Courses.ToListAsync();
 
             return View(model);
         }

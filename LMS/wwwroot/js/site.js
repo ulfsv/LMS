@@ -15,6 +15,12 @@ $(document).ready(function () {
     }
 })
 
+$(document).ready(function () {
+    $('#checkbox').click(function () {
+        $('form').submit();
+    })
+});
+
 
 /* local host */
 let localUrl = 'https://localhost:44360';
@@ -106,4 +112,6 @@ function updateStudentsList() {
         })
         .catch(err => console.log(err));
 };
+
+
 

@@ -12,6 +12,7 @@ namespace LMS.Models.ViewModels
         // fields
         public ApplicationUser Teacher { get; set; }
         public string NextCourse { get; set; }
+        public bool ShowAllCourses { get; set; }
 
     }
 }
