@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Models;
+using LMS.Models.ViewModels;
 
 namespace LMS.Controllers
 {
     public class DocumentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly string noDocumentsMessage = "No documents";
 
         public DocumentsController(ApplicationDbContext context)
         {
@@ -24,6 +26,46 @@ namespace LMS.Controllers
         {
             var applicationDbContext = _context.Documents.Include(d => d.Activity).Include(d => d.ApplicationUser).Include(d => d.Course).Include(d => d.Module);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+        // GET: Documents for course
+        public async Task<IActionResult> GetForCourse(int id)
+        {
+            var applicationDbContext = _context.Documents
+                                       .Where(d => d.CourseId == id);
+            var model = new DocumentListViewModel();
+            model.TypeHeader = "Course Documents";
+            model.Documents = await applicationDbContext.ToListAsync();
+            model.EmptyMessage = (model.Documents.Count == 0) ? noDocumentsMessage : "";
+
+            return PartialView("DocumentPartialList", model);
+        }
+
+        // GET: Documents for module
+
+        public async Task<IActionResult> GetForModule(int id)
+        {
+            var applicationDbContext = _context.Documents
+                                       .Where(d => d.ModuleId == id);
+            var model = new DocumentListViewModel();
+            model.TypeHeader = "Module Documents";
+            model.Documents = await applicationDbContext.ToListAsync();
+            model.EmptyMessage = (model.Documents.Count == 0) ? noDocumentsMessage : "";
+
+            return PartialView("DocumentPartialList", model);
+        }
+
+        // GET: Documents for activity
+        public async Task<IActionResult> GetForActivity(int id)
+        {
+            var applicationDbContext = _context.Documents
+                                       .Where(d => d.ActivityId == id);
+            var model = new DocumentListViewModel();
+            model.TypeHeader = "Activity Documents";
+            model.Documents = await applicationDbContext.ToListAsync();
+            model.EmptyMessage = (model.Documents.Count == 0) ? noDocumentsMessage : "";
+
+            return PartialView("DocumentPartialList", model);
         }
 
         // GET: Documents/Details/5

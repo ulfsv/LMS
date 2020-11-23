@@ -10,6 +10,8 @@ $(document).ready(function () {
     for (var i = 0; i < courses.length; i++) {
         courses[i].addEventListener('click', getModuleList);
         courses[i].addEventListener('click', updateCourseDetails);
+        courses[i].addEventListener('click', updateCourseDocumentList);
+
         courses[i].addEventListener('click', updateStudentsList);
 
     }
@@ -40,11 +42,14 @@ async function getModuleList() {
             let activities = document.getElementsByClassName("activitySelector");
             for (var i = 0; i < activities.length; i++) {
                 activities[i].addEventListener('click', updateActivityDetails);
+                activities[i].addEventListener('click', updateActivityDocumentList);
+
             }
 
             let modules = document.getElementsByClassName("moduleSelector");
             for (var i = 0; i < modules.length; i++) {
                 modules[i].addEventListener('click', updateModuleDetails);
+                modules[i].addEventListener('click', updateModuleDocumentList);
             }
 
             //let modules = document.getElementsByClassName("studentSelector");
@@ -95,6 +100,49 @@ function updateModuleDetails() {
         .then(data => {
             detailsContainer.innerHTML = data;
 
+        })
+        .catch(err => console.log(err));
+};
+
+/*Course Document List */
+function updateCourseDocumentList() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Documents/GetForCourse/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            courseDocId.innerHTML = data;
+            moduleDocId.innerHTML = "";
+            activityDocId.innerHTML = "";
+        })
+        .catch(err => console.log(err));
+};
+/*Module Document List */
+function updateModuleDocumentList() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Documents/GetForModule/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            moduleDocId.innerHTML = data;
+            activityDocId.innerHTML = "";
+        })
+        .catch(err => console.log(err));
+};
+/*Activity Document List */
+function updateActivityDocumentList() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Documents/GetForActivity/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            activityDocId.innerHTML = data;
         })
         .catch(err => console.log(err));
 };

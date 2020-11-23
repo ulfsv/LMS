@@ -1,0 +1,12 @@
+﻿@model LMS.Models.ViewModels.DocumentListViewModel
+
+<div class="docListHeader">
+    @Model.TypeHeader
+</div>
+<div class="docListBody">
+    <div class="docEmptyListMessage">@Model.EmptyMessage</div>
+    @foreach (var doc in Model.Documents)
+    {
+        <div class="docListRow"><a>@doc.Name</a></div>
+    }
+</div>

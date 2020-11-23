@@ -153,7 +153,7 @@ namespace LMS.Data
 
                 var users = context.ApplicationUsers.ToList();
 
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 300; i++)
                 {
                     var document = new Document
                     {
