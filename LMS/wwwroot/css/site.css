@@ -211,7 +211,6 @@ body {
 }
 .infoBox {
     border: 1px solid black;
-    height: 795px;
     /*overflow-y: scroll;*/
     background-color: wheat;
 }
@@ -219,7 +218,10 @@ body {
     max-height: 235px;
     overflow-y: scroll;
 }
-
+.infoBox,
+.coursesBox {
+    height: 790px;
+}
 .coursesBox,
 .moduleBox,
 .infoBox,
@@ -323,6 +325,7 @@ body {
     color: black;
     background-color: wheat;
     letter-spacing: 1px;
+    max-height: 300px;
 }
 
 .docEmptyListMessage {
