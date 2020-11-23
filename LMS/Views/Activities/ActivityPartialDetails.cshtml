@@ -8,6 +8,9 @@
             <p class="courseDescriptionBox">@Model.Description</p>
             <H6 class="font-weight-bold">Activity Start: &nbsp;@Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</H6>
             <H6 class="font-weight-bold">Activity End: &nbsp;&nbsp;&nbsp;@Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</H6>
+            <div col-sm-12>
+                <button class="btn myBtnEdit">Edit</button>
+            </div>
         </div>
         <div class="col-sm-6">
             <div id="activityDocId" class="col-sm-12 activityBox activityDocuments">
