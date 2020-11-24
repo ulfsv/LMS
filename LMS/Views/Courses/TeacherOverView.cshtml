@@ -10,12 +10,22 @@
 <p>
     <a asp-action="Create">Create New Course</a>
 </p>
-@*<div class="nextCourseInfo">
-    Your next actvity @activityService.GetActivity(User).Name starts at @activityService.GetActivity(User).StartTime.ToString("yyyy-MM-dd | HH:mm")
-</div>*@
+
+<div class="form-group form-check">
+    <form asp-action="TeacherOverView">
+        <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
+        <label class="form-check-label">Show All Courses</label>
+    </form>
+</div>
+
+<div class="nextCourseInfo">
+   Welcome @activityService.GetActivity(User).UserName! 
+   Your next actvity @activityService.GetActivity(User).Aktivitet.Name
+   starts at @activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")
+</div>
 
 <div class="row">
-    <div class="col-3 mr-1">
+    <div class="col-3">
         <div class="coursesBox">
             <div class="courseBoxHeightTop">
                 <h3 class="boxTitle">Courses</h3>
@@ -26,40 +36,36 @@
                     </ul>
                 }
             </div>
+            <button class="btn myBtnAdd">Add New Course</button>
             <hr />
-            <div id="studentList" class="courseBoxHeightBottom">StudentPartialLiset</div>
+            <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
+                <h3 class="boxTitle">Modules and Activities</h3>
+            </div>
         </div>
     </div>
-    <div class="col-8 infoBox ml-sm-2">
+    <!--Course and Student list-->
+    <div class="col-sm-9 infoBox">
         <div class="row">
-            <div class="col-sm-5 colPadding">
-                <h2 class="boxTitle">Course Information</h2>
+            <div class="col-sm-6 borderLeftBox">
+                <h3 class="boxTitle">Course</h3>
                 <div id="courseDetailsContainer"></div>
-                <br />
             </div>
 
-            <div class="col-sm-7">
-                <div class="row">
-                    <div id="courseDocId" class="col-sm-4 activityBox courseDocuments">
-                        <h5 class="insideBoxes">Course Documents</h5>
-                    </div>
-                    <div id="moduleDocId" class="col-sm-4 activityBox moduleDocuments">
-                        <h5 class="insideBoxes">Modules Documents</h5>
-                    </div>
-                    <div id="activityDocId" class="col-sm-4 activityBox activityDocuments">
-                        <h5 class="insideBoxes">Activity Documents</h5>
-                    </div>
-                </div>
+            <div class="col-sm-6 borderRightBox">
+                <h3 class="boxTitle">Students</h3>
+                <div id="studentsListContainer"></div>
             </div>
         </div>
-        <hr />
+
+        <!--Module and Activity-->
         <div class="row">
-            <div class="col-6 modulBox colPadding" id="moduleListContainer">
-                <h3 class="boxTitle">Modules</h3>
+            <div class="col-sm-6 borderLeftBox">
+                <div id="moduleDetailsContainer"></div>
             </div>
-            <div class="col-6 modulBox colPadding" id="detailsContainer">
+
+            <div class="col-sm-6 borderRightBox">
+                <div id="activityDetailsContainer"></div>
             </div>
-            
         </div>
     </div>
 </div>

@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using LMS.Data;
 using LMS.Models;
+using LMS.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +21,7 @@ namespace LMS.Services
             this.userManager = userManager;
         }
 
-        public Aktivitet GetActivity(ClaimsPrincipal user)
+        public TeacherActivityViewModel GetActivity(ClaimsPrincipal user)
         {
             var userId = userManager.GetUserId(user);
             var userModules = db.Users.Where(u => u.Id == userId).Include(u => u.Course)
@@ -35,7 +36,12 @@ namespace LMS.Services
             var sortedActivities = activities.OrderBy(a => a.StartTime);
 
             var nextActivity = sortedActivities.FirstOrDefault(a => a.StartTime > DateTime.Now);
-            return nextActivity;
+
+            var userName = db.ApplicationUsers.Find(userId).FullName;
+            var viewModel = new TeacherActivityViewModel();
+            viewModel.Aktivitet = nextActivity;
+            viewModel.UserName = userName;
+            return viewModel;
         }
     }
 }

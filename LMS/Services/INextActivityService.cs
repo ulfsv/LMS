@@ -1,10 +1,10 @@
 ﻿using System.Security.Claims;
-using LMS.Models;
+using LMS.Models.ViewModels;
 
 namespace LMS.Services
 {
     public interface INextActivityService
     {
-        Aktivitet GetActivity(ClaimsPrincipal user);
+        TeacherActivityViewModel GetActivity(ClaimsPrincipal user);
     }
 }

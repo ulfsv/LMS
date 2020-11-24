@@ -10,6 +10,7 @@ using LMS.Models;
 using LMS.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using IdentityModel;
 
 namespace LMS.Controllers
 {
@@ -17,24 +18,33 @@ namespace LMS.Controllers
     {
         private readonly ApplicationDbContext db;
         private readonly UserManager<ApplicationUser> userManager;
-        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        private readonly RoleManager<IdentityRole> roleManager;
 
+        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             db = context;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         // Teacher OverView
-        [Authorize(Roles = "Teacher")]
-        public async Task<IActionResult> TeacherOverView()
+        //[Authorize(Roles = "Teacher")]
+        public async Task<IActionResult> TeacherOverView(bool ShowAllCourses)
         {
             var model = new TeacherOverViewModel();
-            model.Courses = await db.Courses.ToListAsync();
 
-            model.NextCourse = "Your next Activity: XXXXXX, starts at XX.XX today!";
+            var userId = userManager.GetUserId(User);
+            var courseId = await db.ApplicationUsers.Where(u => u.Id == userId)
+                .Select(u => u.CourseId).SingleAsync();
+            var attendingCourse = await db.Courses.Where(c => c.Id == courseId).ToListAsync();
+            if (!ShowAllCourses)
+                model.Courses = attendingCourse;
+            if (ShowAllCourses)
+                model.Courses = await db.Courses.ToListAsync();
 
             return View(model);
         }
+
         // END Teacher OverView
 
         // GET: Courses
@@ -72,31 +82,39 @@ namespace LMS.Controllers
 
             var course = await db.Courses
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            var teachers = await userManager.GetUsersInRoleAsync("Teacher");
+            var teacher = teachers.Where(s => s.CourseId == id).SingleOrDefault();
+
+            var viewModel = new CourseDetailsViewModel();
+            viewModel.Course = course;
+
+            if (teacher is null)
+                viewModel.TeacherName = "No teacher chosen";
+            else
+                viewModel.TeacherName = teacher.FullName;
+
             if (course == null)
             {
                 return NotFound();
             }
 
-            return PartialView("CoursePartialDetails", course);
+            return PartialView("CoursePartialDetails", viewModel);
         }
 
         //Student List
         // GET: Student/List/5
-        public async Task<IActionResult> Students(int? id)
+        public async Task<IActionResult> GetStudentsList(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var student = await db.Roles
-                .FirstOrDefaultAsync(s => s.Id == "6bba219d-3f1c-41a0-91d1-74306387792c");
-            if (student == null)
-            {
-                return NotFound();
-            }
+            var students = await userManager.GetUsersInRoleAsync("Student");
+            var participatingStudents = students.Where(s => s.CourseId == id).ToList();
 
-            return View(student);
+            return PartialView("StudentsPartialList", participatingStudents);
         }
 
         // GET: Student/PartialDetails/5
