@@ -122,9 +122,11 @@ hr{
     margin-bottom: 0;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  font-family: Roboto;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: Roboto;
+    min-width: 1450px;
+    overflow-x: scroll;
 }
 
 
