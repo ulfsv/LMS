@@ -9,16 +9,19 @@ using LMS.Data;
 using LMS.Models;
 using LMS.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace LMS.Controllers
 {
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext db;
+        private readonly UserManager<ApplicationUser> userManager;
+        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
 
-        public CoursesController(ApplicationDbContext context)
         {
             db = context;
+            this.userManager = userManager;
         }
 
         // Teacher OverView
@@ -40,6 +43,7 @@ namespace LMS.Controllers
             return View(await db.Courses.ToListAsync());
         }
 
+        [Authorize(Roles = "Teacher, Student")]        
         // GET: Courses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -96,9 +100,10 @@ namespace LMS.Controllers
         }
 
         // GET: Student/PartialDetails/5
-        
+
         // END Student List
 
+        [Authorize(Roles = "Teacher")]
         // GET: Courses/Create
         public IActionResult Create()
         {
@@ -120,7 +125,7 @@ namespace LMS.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Teacher")]
         // GET: Courses/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -136,7 +141,7 @@ namespace LMS.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Teacher")]
         // POST: Courses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -171,7 +176,7 @@ namespace LMS.Controllers
             }
             return View(course);
         }
-
+        [Authorize(Roles = "Teacher")]
         // GET: Courses/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -189,7 +194,7 @@ namespace LMS.Controllers
 
             return View(course);
         }
-
+        [Authorize(Roles = "Teacher")]
         // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

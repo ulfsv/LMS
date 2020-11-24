@@ -21,9 +21,10 @@ namespace LMS.Data
                if (context.Courses.Any()) return;
 
                 var fake = new Faker();
-                var lorem = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. " +
-                    "Ea commodi doloribus dolor eum eaque consequatur eveniet laboriosam " +
-                    "perferendis omnis vel quam";
+                //var lorem = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. " +
+                //    "Ea commodi doloribus dolor eum eaque consequatur eveniet laboriosam " +
+                //    "perferendis omnis vel quam";
+
                 var courses = new List<Course>();
 
                 for (int i = 1; i < 21; i++)
@@ -31,7 +32,7 @@ namespace LMS.Data
                     var course = new Course
                     {
                         Name = fake.Company.CatchPhrase(),
-                        Description = lorem,
+                        Description = fake.Lorem.Random.Words(10),
                         //Duration = new TimeSpan(0, 55, 0),
                         StartDate = DateTime.Now.AddDays(fake.Random.Int(-2, 2))
                     };
@@ -97,7 +98,7 @@ namespace LMS.Data
                         var module = new Module
                         {
                             Name = fake.Company.CatchPhrase(),
-                            Description = lorem,
+                            Description = fake.Lorem.Random.Words(10),
                             //Duration = new TimeSpan(0, 55, 0),
                             StartDate = course.StartDate.AddDays(i * 28),
                             EndDate = course.StartDate.AddDays(i * 28 + 27),
@@ -135,7 +136,7 @@ namespace LMS.Data
                         var activity = new Aktivitet
                         {
                             Name = fake.Company.CatchPhrase(),
-                            Description = lorem,
+                            Description = fake.Lorem.Random.Words(10),
                             ModuleId = module.Id,
                             StartTime = module.StartDate.AddDays(i * 4),
                             EndTime = module.StartDate.AddDays(i * 4 + 3),
