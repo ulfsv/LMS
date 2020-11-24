@@ -21,6 +21,14 @@ a:hover,
     font-weight: 700;
     text-decoration: none;
 }
+#btnCourse,
+#btnModule,
+#btnActivity {
+    visibility: hidden;
+}
+.btn {
+    padding: .5rem;
+}
 .viewBtn {
     padding: 7px 14px;
     border: 1px solid black;
@@ -46,13 +54,13 @@ a:hover,
     color: gray;
 }
 .myBtnAdd {
-    width: 70%;
+    width: 140px;
 }
 .myBtnEdit {
-    width: 25%;
+    width: 55px;
 }
 .myBtnStudent {
-    width: 50%;
+    width: 110px;
 }
 .myBtnAdd:hover,
 .myBtnEdit:hover,
@@ -60,9 +68,6 @@ a:hover,
     color: black;
 }
 
-.btn {
-    padding: 0;
-}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -117,9 +122,11 @@ hr{
     margin-bottom: 0;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  font-family: Roboto;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: Roboto;
+    min-width: 1450px;
+    overflow-x: scroll;
 }
 
 
@@ -130,11 +137,19 @@ body {
 .textCenter {
     text-align: center;
 }
+.nameH5 {
+    font-size: 14px;
+    font-weight: 900;
+}
 .h1Home {
     font-size: 4.5rem;
     color: black;
     font-weight: 900;
     margin: 3rem 0 1rem;
+}
+.addIcon {
+    height: 20px;
+    margin: 10px 0;
 }
 .iconSize {
     height: 40px;
@@ -164,18 +179,29 @@ body {
     padding-top: 15px
 }
 .courseBoxHeightTop {
-    max-height: 45%;
+    height: 45%;
     overflow-y: scroll;
 }
 .courseBoxHeightBottom {
-    max-height: 50%;
+    height: 50%;
     overflow-y: scroll;
 }
 .nextCourseInfo {
-    font-weight: 700;
-    margin: 20px 0;
+    margin: 14px 0;
     letter-spacing: 1px;
     font-size: 20px;
+}
+.quotes {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.quotes::before {
+    content: open-quote;
+}
+
+.quotes::after {
+    content: close-quote;
 }
 .myListGroup {
     height: auto;
@@ -193,6 +219,9 @@ body {
     height: 795px;
     background-color: wheat;
     padding: 0 10px;
+}
+.paddingTop {
+    padding-top: 15px;
 }
 .activityDescription {
     font-size: 20px;
@@ -218,9 +247,10 @@ body {
     max-height: 235px;
     overflow-y: scroll;
 }
+
 .infoBox,
 .coursesBox {
-    height: 790px;
+    height: 760px;
 }
 .coursesBox,
 .moduleBox,
@@ -239,6 +269,9 @@ body {
     font-size: 1rem;
     padding: 5px;
     margin: 0;
+}
+.moduleTitle:hover {
+    font-weight: 700;
 }
 .activityH6 {
     font-size: 1.3rem;
@@ -275,6 +308,10 @@ body {
     font-size: 14px;
     font-weight: 700;
 }
+.nameTitle {
+    font-size: 14px;
+    font-weight:400;
+}
 .spanHeader {
     font-size: 20px
 }
@@ -284,6 +321,7 @@ body {
 }
 .boxParagraph {
     width: 100%;
+    font-weight: 900;
 }
 
 .colPadding {
@@ -318,14 +356,13 @@ body {
 
 .docListBody {
     height: 322px;
-    min-width: 138px;
     color: darkblue;
     overflow-x: auto;
     overflow-y: auto;
     color: black;
     background-color: wheat;
     letter-spacing: 1px;
-    max-height: 300px;
+    max-height: 248px;
 }
 
 .docEmptyListMessage {
@@ -355,5 +392,22 @@ body {
     border-left: solid 2px black;
 }
 .borderTopBox {
-    border-top: solid 2px black;
+    height: 310px;
 }
+.borderBottomBox {
+    height: 360px;
+}
+
+.borderBottomBox {
+    border-bottom: solid 2px black;
+    margin-bottom: 15px;
+}
+.moduleActivityBoxMarginTop {
+    margin-top: 0px;
+}
+.moduleActivityBoxMargin {
+    margin-bottom: 15px;
+}
+
+
+
