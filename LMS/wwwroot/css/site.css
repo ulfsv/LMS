@@ -164,11 +164,11 @@ body {
     padding-top: 15px
 }
 .courseBoxHeightTop {
-    max-height: 45%;
+    height: 45%;
     overflow-y: scroll;
 }
 .courseBoxHeightBottom {
-    max-height: 50%;
+    height: 50%;
     overflow-y: scroll;
 }
 .nextCourseInfo {

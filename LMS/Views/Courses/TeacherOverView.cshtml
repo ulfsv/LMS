@@ -19,8 +19,12 @@
 </div>
 
 <div class="nextCourseInfo">
-    Your next activity <span class="quotes">@activityService.GetActivity(User).Name
-           </span> starts at <span class="quotes">@activityService.GetActivity(User).StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
+
+    Welcome <span class="font-weight-bold">@activityService.GetActivity(User).UserName</span>
+    Your next activity
+            <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
+    starts at
+    <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
 </div>
 
 <div class="row">
