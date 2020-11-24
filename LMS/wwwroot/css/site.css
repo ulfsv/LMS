@@ -254,6 +254,9 @@ body {
     padding: 5px;
     margin: 0;
 }
+.moduleTitle:hover {
+    font-weight: 700;
+}
 .activityH6 {
     font-size: 1.3rem;
     font-weight: 700;
