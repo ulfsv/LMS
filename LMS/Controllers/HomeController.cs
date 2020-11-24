@@ -18,9 +18,10 @@ namespace LMS.Controllers
             _logger = logger;
         }
 
+        // Stefan Landingpage
         public IActionResult Index()
         {
-            return View();
+            return View("../../LandingPageView/LandingPage");
         }
 
         public IActionResult Privacy()

@@ -2,10 +2,9 @@
 
 
 <div class="">
-    <h3 class="boxTitle">Activity Details</h3>
-    <h6>@Model.Name</h6>
+    <h4 class="boxTitle">Activity Details - @Model.Name</h4>
     <h4 class="activityDescription">Activity Description</h4>
     <p class="courseDescriptionBox">@Model.Description</p>
-    <H6 class="font-weight-bold">Activity Start: @Model.StartTime</H6>
-    <H6 class="font-weight-bold">Activity End: @Model.EndTime</H6>
+    <H6 class="font-weight-bold">Activity Start: &nbsp;@Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</H6>
+    <H6 class="font-weight-bold">Activity End: &nbsp;&nbsp;&nbsp;@Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</H6>
 </div>

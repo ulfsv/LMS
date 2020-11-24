@@ -11,7 +11,10 @@ a.navbar-brand {
 /*a {
   color: #0366d6;
 }*/
-
+a {
+    text-decoration: none !important;
+    color: black;
+}
 a:hover,
 .viewBtn:hover {
     color: black;
@@ -40,6 +43,9 @@ a:hover,
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+.navColor {
+    background-color: #d7d7d7 !important;
 }
 
 /* Sticky footer styles
@@ -76,26 +82,48 @@ html {
   min-height: 100%;
 }
 hr{
-    margin-bottom: 0;s
+    margin-bottom: 0;
 }
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: Roboto;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
 
+
+/* LandingPageStyle */
+.bodyColor {
+    background-color: wheat;
+}
+.textCenter {
+    text-align: center;
+}
+.h1Home {
+    font-size: 4.5rem;
+    color: black;
+    font-weight: 900;
+    margin: 3rem 0 1rem;
+}
+.iconSize {
+    height: 70px;
+    margin: 30px 0;
+}
+.navIcon {
+    height: 20px;
+    padding-bottom: 4px;
+}
+.passwordIconSize {
+    height: 20px;
+    margin-left: 25px;
+}
+.noStyleDisp {
+    text-decoration: none;
+    color: black;
+}
 /* Own Style*/
 .courseDocuments
 .moduleDocuments
 .activityDocuments {
-
 }
 
 .courseBoxHeightTop {
@@ -119,6 +147,7 @@ body {
 }
 .myListGroupItem {
     padding: 2px 4px;
+    margin-right: 3px;
 }
 .courseNameBox {
     border: 1px solid black;
@@ -127,6 +156,7 @@ body {
     border: 1px solid black;
     height: 700px;
     background-color: wheat;
+    padding: 0 10px;
 }
 .activityDescription {
     font-size: 20px;
@@ -225,4 +255,19 @@ body {
 }
 .colPaddingMiddle {
     padding-right: 0;
+}
+.centerItemVertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 30px; /* Vertically center the text there */
+    text-align: center;
+    font-size: .8rem;
+    background-color: #d7d7d7;
 }

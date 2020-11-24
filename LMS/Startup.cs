@@ -1,5 +1,6 @@
 using LMS.Data;
 using LMS.Models;
+using LMS.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -29,6 +30,9 @@ namespace LMS
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddScoped<INextActivityService, NextActivityService>();
+
             services.AddRazorPages();
         }
 
@@ -58,7 +62,7 @@ namespace LMS
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Courses}/{action=TeacherOverView}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
