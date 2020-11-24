@@ -1,6 +1,6 @@
 ﻿@model LMS.Models.ViewModels.CourseDetailsViewModel
 
-<div class="courseInfoBox">
+<div class="courseInfoBox paddingTop">
     <div class="row">
         <div class="col-sm-6">
 
@@ -11,9 +11,15 @@
             <hr />
             <H6 class="font-weight-bold">Course Start Date</H6>
             <p class="boxParagraph">@Model.StartDate.ToString("yyyy-MM-dd")</p>
+            <div col-sm-12>
+                <button class="btn myBtnEdit">Edit</button>
+                <button class="btn myBtnAdd">Add New Course</button>
+            </div>
         </div>
         <div class="col-sm-6">
             <div id="courseDocId" class="col-sm-12 activityBox courseDocuments">
+                <div class="row">
+                </div>
             </div>
         </div>
     </div>

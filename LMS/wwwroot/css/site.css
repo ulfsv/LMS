@@ -21,6 +21,9 @@ a:hover,
     font-weight: 700;
     text-decoration: none;
 }
+.btn {
+    padding: .5rem;
+}
 .viewBtn {
     padding: 7px 14px;
     border: 1px solid black;
@@ -46,13 +49,13 @@ a:hover,
     color: gray;
 }
 .myBtnAdd {
-    width: 70%;
+    width: 140px;
 }
 .myBtnEdit {
-    width: 25%;
+    width: 55px;
 }
 .myBtnStudent {
-    width: 50%;
+    width: 110px;
 }
 .myBtnAdd:hover,
 .myBtnEdit:hover,
@@ -60,9 +63,6 @@ a:hover,
     color: black;
 }
 
-.btn {
-    padding: 0;
-}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -172,10 +172,21 @@ body {
     overflow-y: scroll;
 }
 .nextCourseInfo {
-    font-weight: 700;
-    margin: 20px 0;
+    margin: 14px 0;
     letter-spacing: 1px;
     font-size: 20px;
+}
+.quotes {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.quotes::before {
+    content: open-quote;
+}
+
+.quotes::after {
+    content: close-quote;
 }
 .myListGroup {
     height: auto;
@@ -193,6 +204,9 @@ body {
     height: 795px;
     background-color: wheat;
     padding: 0 10px;
+}
+.paddingTop {
+    padding-top: 15px;
 }
 .activityDescription {
     font-size: 20px;
@@ -239,6 +253,9 @@ body {
     font-size: 1rem;
     padding: 5px;
     margin: 0;
+}
+.moduleTitle:hover {
+    font-weight: 700;
 }
 .activityH6 {
     font-size: 1.3rem;
@@ -357,3 +374,6 @@ body {
 .borderTopBox {
     border-top: solid 2px black;
 }
+
+
+

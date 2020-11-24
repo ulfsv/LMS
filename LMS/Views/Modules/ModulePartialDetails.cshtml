@@ -8,10 +8,11 @@
             <p class="courseDescriptionBox">@Model.Description</p>
             <H6 class="font-weight-bold">Module Start: &nbsp;@Model.StartDate.ToString("yyyy-MM-dd")</H6>
             <H6 class="font-weight-bold">Module End: &nbsp;&nbsp;&nbsp;@Model.EndDate.ToString("yyyy-MM-dd")</H6>
-        </div>
-        <div class="col-sm-6">
-            <div id="moduleDocId" class="col-sm-12 activityBox moduleDocuments">
+            <div col-sm-12>
+                <button class="btn myBtnEdit">Edit</button>
+                <button class="btn myBtnAdd">Add New Course</button>
             </div>
         </div>
+        
     </div>
 </div>
