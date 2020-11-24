@@ -1,18 +1,11 @@
 ﻿@model LMS.Models.Module
 
-<div class="courseInfoBox borderTopBox">
-    <div class="row">
-        <div class="col-sm-6">
-            <h4 class="boxTitle"><span class="spanHeader">Module: <br /> </span>@Model.Name</h4>
-            <h4 class="activityDescription">Module Description</h4>
-            <p class="courseDescriptionBox">@Model.Description</p>
-            <H6 class="font-weight-bold">Module Start: &nbsp;@Model.StartDate.ToString("yyyy-MM-dd")</H6>
-            <H6 class="font-weight-bold">Module End: &nbsp;&nbsp;&nbsp;@Model.EndDate.ToString("yyyy-MM-dd")</H6>
-            <div col-sm-12>
-                <button class="btn myBtnEdit">Edit</button>
-                <button class="btn myBtnAdd">Add New Course</button>
-            </div>
-        </div>
-        
-    </div>
-</div>
+<h4 class="boxTitle">Module</h4>
+<h4 class="quotes nameTitle">@Model.Name</h4>
+<h4 class="font-weight-bold">Module Description</h4>
+<p class="courseDescriptionBox">@Model.Description</p>
+<hr />
+<H6 class="font-weight-bold">Module Start Date</H6>
+<p class="boxParagraph">@Model.StartDate.ToString("yyyy-MM-dd")</p>
+<p class="boxParagraph">@Model.EndDate.ToString("yyyy-MM-dd")</p>
+

@@ -1,6 +1,6 @@
 ﻿@model LMS.Models.Aktivitet
-   
-<div class="courseInfoBox borderTopBox">
+
+@*<div class="courseInfoBox borderTopBox">
     <div class="row">
         <div class="col-sm-6">
             <h4 class="boxTitle"><span class="spanHeader">Activity: <br /> </span> @Model.Name</h4>
@@ -17,4 +17,14 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
+
+
+<h4 class="boxTitle">Activity</h4>
+<h4 class="quotes nameTitle">@Model.Name</h4>
+<h4 class="font-weight-bold">Activity Description</h4>
+<p class="courseDescriptionBox">@Model.Description</p>
+<hr />
+<H6 class="font-weight-bold">Module Start Date</H6>
+<p class="boxParagraph">@Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</p>
+<p class="boxParagraph">@Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</p>

@@ -21,6 +21,11 @@ a:hover,
     font-weight: 700;
     text-decoration: none;
 }
+#btnCourse,
+#btnModule,
+#btnActivity {
+    visibility: hidden;
+}
 .btn {
     padding: .5rem;
 }
@@ -136,6 +141,10 @@ body {
     font-weight: 900;
     margin: 3rem 0 1rem;
 }
+.addIcon {
+    height: 20px;
+    margin: 10px 0;
+}
 .iconSize {
     height: 70px;
     margin: 30px 0;
@@ -232,9 +241,10 @@ body {
     max-height: 235px;
     overflow-y: scroll;
 }
+
 .infoBox,
 .coursesBox {
-    height: 790px;
+    height: 810px;
 }
 .coursesBox,
 .moduleBox,
@@ -292,6 +302,10 @@ body {
     font-size: 14px;
     font-weight: 700;
 }
+.nameTitle {
+    font-size: 14px;
+    font-weight:400;
+}
 .spanHeader {
     font-size: 20px
 }
@@ -335,14 +349,13 @@ body {
 
 .docListBody {
     height: 322px;
-    min-width: 138px;
     color: darkblue;
     overflow-x: auto;
     overflow-y: auto;
     color: black;
     background-color: wheat;
     letter-spacing: 1px;
-    max-height: 300px;
+    max-height: 248px;
 }
 
 .docEmptyListMessage {
@@ -371,8 +384,20 @@ body {
 .borderRightBox {
     border-left: solid 2px black;
 }
-.borderTopBox {
-    border-top: solid 2px black;
+.borderTopBox,
+.borderBottomBox {
+    height: 360px;
+}
+
+.borderBottomBox {
+    border-bottom: solid 2px black;
+    margin-bottom: 15px;
+}
+.moduleActivityBoxMarginTop {
+    margin-top: 0px;
+}
+.moduleActivityBoxMargin {
+    margin-bottom: 15px;
 }
 
 
