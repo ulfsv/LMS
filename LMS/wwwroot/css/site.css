@@ -135,6 +135,10 @@ body {
 .textCenter {
     text-align: center;
 }
+.nameH5 {
+    font-size: 14px;
+    font-weight: 900;
+}
 .h1Home {
     font-size: 4.5rem;
     color: black;
@@ -244,7 +248,7 @@ body {
 
 .infoBox,
 .coursesBox {
-    height: 810px;
+    height: 760px;
 }
 .coursesBox,
 .moduleBox,
@@ -315,6 +319,7 @@ body {
 }
 .boxParagraph {
     width: 100%;
+    font-weight: 900;
 }
 
 .colPadding {
@@ -384,7 +389,9 @@ body {
 .borderRightBox {
     border-left: solid 2px black;
 }
-.borderTopBox,
+.borderTopBox {
+    height: 310px;
+}
 .borderBottomBox {
     height: 360px;
 }
