@@ -1,4 +1,4 @@
-﻿select users.Email, users.UserName, users.FirstName, users.LastName, roles.Name as Role
+﻿select users.Email, users.FirstName, users.LastName, roles.Name as Role
 from AspNetUsers as users
 join AspNetUserRoles as userroles
 on users.Id = userroles.UserId
