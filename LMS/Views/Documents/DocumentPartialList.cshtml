@@ -1,17 +1,20 @@
 ﻿@model LMS.Models.ViewModels.DocumentListViewModel
 @*<img src="~/Images/plus1.png" class="addIcon" alt="Add icon" />*@
-<div class="docListHeader">
-    @Model.TypeHeader
+<div class="colHeight">
+    <div class="docListHeader">
+        @Model.TypeHeader
+    </div>
+    <div class="docListBody">
+        <div class="docEmptyListMessage">@Model.EmptyMessage</div>
+        @foreach (var doc in Model.Documents)
+        {
+            <ul class="list-group myListGroup">
+                <li class="list-group-item myListGroupItem">@doc.Name</li>
+            </ul>
+        }
+
+    </div>
 </div>
-<div class="docListBody">
-    <div class="docEmptyListMessage">@Model.EmptyMessage</div>
-    @foreach (var doc in Model.Documents)
-    {
-        <ul class="list-group myListGroup">
-            <li class="list-group-item myListGroupItem">@doc.Name</li>
-        </ul>
-    }
+<div>
+    <button class="btn myBtnAdd float-right">Add New Doc</button>
 </div>
-@*<div class="col-sm-12">
-    <button class="btn myBtnEdit">Edit</button>
-</div>*@

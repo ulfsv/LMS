@@ -7,10 +7,6 @@
 
 <h1>Teacher Course Overview</h1>
 
-<p>
-    <a asp-action="Create">Create New Course</a>
-</p>
-
 <div class="form-group form-check">
     <form asp-action="TeacherOverView">
         <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
@@ -44,7 +40,8 @@
                     </ul>
                 }
             </div>
-            <button class="btn myBtnAdd">Add New Course</button>
+            <a asp-action="Create" class="btn myBtnAdd">Add New Course</a>
+
             <hr />
             <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
                 <h3 class="boxTitle">Modules and Activities</h3>
@@ -64,16 +61,6 @@
                     <div class="col-sm-6">
                         <div>&nbsp;</div>
                         <div id="courseDocId"></div>
-                    </div>
-                </div>
-                <div id="btnCourse" class="row">
-                    <div class="col-sm-6">
-                        <button class="btn myBtnEdit">Edit</button>
-                        <button class="btn myBtnAdd">Add New Module</button>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <button class="btn myBtnAdd float-right">Add New Doc</button>
                     </div>
                 </div>
             </div>
@@ -98,16 +85,7 @@
                         <div id="moduleDocId"></div>
                     </div>
                 </div>
-                <div id="btnModule" class="row">
-                    <div class="col-sm-6">
-                        <button class="btn myBtnEdit">Edit</button>
-                        <button class="btn myBtnAdd">Add New Activity</button>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <button class="btn myBtnAdd float-right">Add New Doc</button>
-                    </div>
-                </div>
+              
             </div>
 
             <!--Activity-->
@@ -121,16 +99,6 @@
                     <div class="col-sm-6 borderTopBox">
                         <div>&nbsp;</div>
                         <div id="activityDocId"></div>
-                    </div>
-                </div>
-
-                <div id="btnActivity" class="row">
-                    <div class="col-sm-6">
-                        <button class="btn myBtnEdit">Edit</button>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <button class="btn myBtnAdd float-right">Add New Doc</button>
                     </div>
                 </div>
             </div>
