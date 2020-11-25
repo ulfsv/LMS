@@ -136,7 +136,7 @@ namespace LMS.Data
                         var activity = new Aktivitet
                         {
                             Name = fake.Company.CatchPhrase(),
-                            Description = fake.Lorem.Random.Words(10),
+                            Description = fake.Lorem.Random.Word(),
                             ModuleId = module.Id,
                             StartTime = module.StartDate.AddDays(i * 4),
                             EndTime = module.StartDate.AddDays(i * 4 + 3),
