@@ -27,7 +27,7 @@ namespace LMS.Data
 
                 var courses = new List<Course>();
 
-                for (int i = 1; i < 21; i++)
+                for (int i = 1; i < 8; i++)
                 {
                     var course = new Course
                     {

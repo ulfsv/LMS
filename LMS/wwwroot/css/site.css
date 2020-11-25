@@ -408,6 +408,12 @@ body {
 .moduleActivityBoxMargin {
     margin-bottom: 15px;
 }
-
+.colHeight {
+    min-height: 280px;
+}
+.typeBox{
+    font-weight: 900;
+    font-size: 14px;
+}
 
 
