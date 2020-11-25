@@ -39,7 +39,8 @@
                     </ul>
                 }
             </div>
-            <button class="btn myBtnAdd">Add New Course</button>
+            <a asp-action="Create" class="btn myBtnAdd">Add New Course</a>
+
             <hr />
             <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
                 <h3 class="boxTitle">Modules and Activities</h3>
@@ -61,16 +62,16 @@
                         <div id="courseDocId"></div>
                     </div>
                 </div>
-                <div id="btnCourse" class="row">
+                @*<div id="btnCourse" class="row">
                     <div class="col-sm-6">
-                        <button class="btn myBtnEdit">Edit</button>
+                        <button id="courseEditBtn" class="btn myBtnEdit">Edit</button>
                         <button class="btn myBtnAdd">Add New Module</button>
                     </div>
 
                     <div class="col-sm-6">
                         <button class="btn myBtnAdd float-right">Add New Doc</button>
                     </div>
-                </div>
+                </div>*@
             </div>
 
             <div class="col-sm-6 borderRightBox borderBottomBox">
