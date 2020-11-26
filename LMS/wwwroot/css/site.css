@@ -11,6 +11,10 @@ a.navbar-brand {
 /*a {
   color: #0366d6;
 }*/
+h1 {
+    font-size: 25px;
+    font-weight: 900;
+}
 a {
     text-decoration: none !important;
     color: black;
@@ -126,7 +130,7 @@ body {
     margin-bottom: 60px;
     font-family: Roboto;
     min-width: 1450px;
-    overflow-x: scroll;
+    overflow: auto;
 }
 
 
@@ -180,7 +184,7 @@ body {
 }
 .courseBoxHeightTop {
     height: 45%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .courseBoxHeightBottom {
     height: 50%;
@@ -390,6 +394,10 @@ body {
 
 .borderRightBox {
     border-left: solid 2px black;
+}
+
+.borderSideBox{
+    border-right:solid 2px black;
 }
 .borderTopBox {
     height: 310px;
