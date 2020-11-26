@@ -1,0 +1,31 @@
+﻿@model LMS.Models.ViewModels.StudentOverViewModel
+@inject LMS.Services.INextActivityService activityService
+
+@{
+    ViewData["Title"] = "Student Course Overview";
+}
+
+<div class="row">
+    @*Courses and module box to the left*@
+    <div class="col-3">
+        <div class="coursesBox">
+            <div class="courseBoxHeightTop">
+                <h3 class="boxTitle">Courses</h3>
+                @foreach (var item in Model.Courses)
+                {
+                    <ul class="list-group myListGroup">
+                        <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
+                    </ul>
+                }
+            </div>
+            @*<a asp-action="Create" class="btn myBtnAdd">Add New Course</a>*@
+
+            <hr />
+            <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
+                <h3 class="boxTitle">Modules and Activities</h3>
+            </div>
+        </div>
+    </div>
+
+
+</div>

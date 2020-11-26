@@ -47,6 +47,25 @@ namespace LMS.Controllers
 
         // END Teacher OverView
 
+        // Student OverView
+        public async Task<IActionResult> StudentOverView(bool ShowAllCourses)
+        {
+            var model = new StudentOverViewModel();
+
+            var userId = userManager.GetUserId(User);
+            var courseId = await db.ApplicationUsers.Where(u => u.Id == userId)
+                .Select(u => u.CourseId).SingleAsync();
+            var attendingCourse = await db.Courses.Where(c => c.Id == courseId).ToListAsync();
+            if (!ShowAllCourses)
+                model.Courses = attendingCourse;
+            if (ShowAllCourses)
+                model.Courses = await db.Courses.ToListAsync();
+
+            return View(model);
+        }
+
+        // END Student OverView
+
         // GET: Courses
         public async Task<IActionResult> Index()
         {
