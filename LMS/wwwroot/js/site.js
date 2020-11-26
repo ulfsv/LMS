@@ -70,11 +70,10 @@ function updateCourseDetails() {
         .then(res => res.text())
         .then(data => {
             courseDetailsContainer.innerHTML = data;
-            btnCourse.style.visibility = 'visible';
             moduleDetailsContainer.innerHTML = "";
+            moduleDocId.innerHTML = "";
             activityDetailsContainer.innerHTML = "";
-            btnModule.style.visibility = 'hidden';
-            btnActivity.style.visibility = 'hidden';
+            activityDocId.innerHTML = "";
         })
         .catch(err => console.log(err));
 };
@@ -89,7 +88,6 @@ function updateActivityDetails() {
         .then(res => res.text())
         .then(data => {
             activityDetailsContainer.innerHTML = data;
-            btnActivity.style.visibility = 'visible';
         })
         .catch(err => console.log(err));
 };
@@ -103,7 +101,6 @@ function updateModuleDetails() {
         .then(res => res.text())
         .then(data => {
             moduleDetailsContainer.innerHTML = data;
-            btnModule.style.visibility = 'visible';
         })
         .catch(err => console.log(err));
 };
@@ -118,7 +115,6 @@ function updateCourseDocumentList() {
         .then(res => res.text())
         .then(data => {
             courseDocId.innerHTML = data;
-            btnActivity.style.visibility = 'visible';
             moduleDocId.innerHTML = "";
             activityDocId.innerHTML = "";
         })
@@ -136,7 +132,6 @@ function updateModuleDocumentList() {
             moduleDocId.innerHTML = data;
             activityDetailsContainer.innerHTML = "";
             activityDocId.innerHTML = "";
-            btnActivity.style.visibility = 'hidden';
         })
         .catch(err => console.log(err));
 };
