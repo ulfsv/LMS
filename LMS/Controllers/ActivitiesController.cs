@@ -55,6 +55,7 @@ namespace LMS.Controllers
             }
 
             var activity = await db.Activities
+                .Include(a=>a.ActivityType)
                 .FirstOrDefaultAsync(a => a.Id == id);
             if (activity == null)
             {
@@ -103,8 +104,8 @@ namespace LMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
-            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "TypeName", aktivitet.ActivityTypeId);
+            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Name", aktivitet.ModuleId);
             return View(aktivitet);
         }
 

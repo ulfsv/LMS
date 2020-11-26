@@ -1,11 +1,18 @@
 ﻿@model LMS.Models.Module
 
 <h4 class="boxTitle">Module</h4>
-<h4 class="quotes nameTitle">@Model.Name</h4>
-<h4 class="font-weight-bold">Module Description</h4>
-<p class="courseDescriptionBox">@Model.Description</p>
-<hr />
+<div class="colHeight">
+    <h4 class="quotes nameTitle">@Model.Name</h4>
+    <h4 class="font-weight-bold">Module Description</h4>
+    <p class="courseDescriptionBox">@Model.Description</p>
+    <hr />
 
-<p class="boxParagraph">Start Date: @Model.StartDate.ToString("yyyy-MM-dd")</p>
-<p class="boxParagraph">Start End: @Model.EndDate.ToString("yyyy-MM-dd")</p>
+    <p class="boxParagraph">Start Date: @Model.StartDate.ToString("yyyy-MM-dd")</p>
+    <p class="boxParagraph">Start End: @Model.EndDate.ToString("yyyy-MM-dd")</p>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn myBtnEdit">Edit</a>
+    <a asp-controller="Activities" asp-action="Create" class="btn myBtnAdd">Add New Activity</a>
+</div>
 

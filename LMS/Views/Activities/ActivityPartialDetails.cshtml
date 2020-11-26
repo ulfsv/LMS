@@ -1,30 +1,18 @@
 ﻿@model LMS.Models.Aktivitet
 
-@*<div class="courseInfoBox borderTopBox">
-    <div class="row">
-        <div class="col-sm-6">
-            <h4 class="boxTitle"><span class="spanHeader">Activity: <br /> </span> @Model.Name</h4>
-            <h4 class="activityDescription">Activity Description</h4>
-            <p class="courseDescriptionBox">@Model.Description</p>
-            <H6 class="font-weight-bold">Activity Start: &nbsp;@Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</H6>
-            <H6 class="font-weight-bold">Activity End: &nbsp;&nbsp;&nbsp;@Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</H6>
-            <div col-sm-12>
-                <button class="btn myBtnEdit">Edit</button>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div id="activityDocId" class="col-sm-12 activityBox activityDocuments">
-            </div>
-        </div>
-    </div>
-</div>*@
-
-
 <h4 class="boxTitle">Activity</h4>
-<h4 class="quotes nameTitle">@Model.Name</h4>
-<h4 class="font-weight-bold">Activity Description</h4>
-<p class="courseDescriptionBox">@Model.Description</p>
-<hr />
+<div class="colHeight">
+    <h4 class="quotes nameTitle">@Model.Name</h4>
+    <h4 class="font-weight-bold">Activity Description</h4>
+    <p class="courseDescriptionBox">@Model.Description</p>
 
-<p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</p>
-<p class="boxParagraph">End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</p>
+    <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
+    <hr />
+
+    <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</p>
+    <p class="boxParagraph">End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</p>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn myBtnEdit">Edit</a>
+</div>
