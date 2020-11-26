@@ -15,18 +15,13 @@
 </div>
 
 @*Welcome text teacher*@
-
 <div class="nextCourseInfo">
-    Your next actvity @activityService.GetActivity(User).Name starts at @activityService.GetActivity(User).StartTime.ToString("yyyy-MM-dd | HH:mm")
-</div>
-
-@*<div class="nextCourseInfo">
     Welcome <span class="font-weight-bold">@activityService.GetActivity(User).UserName</span>
     Your next activity
     <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
     starts at
     <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
-</div>*@
+</div>
 <div class="row">
     @*Courses and module box to the left*@
     <div class="col-3">
@@ -85,7 +80,7 @@
                         <div id="moduleDocId"></div>
                     </div>
                 </div>
-              
+
             </div>
 
             <!--Activity-->
