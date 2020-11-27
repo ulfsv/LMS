@@ -5,10 +5,9 @@
     <h4 class="quotes nameTitle">@Model.Name</h4>
     <h4 class="font-weight-bold">Module Description</h4>
     <p class="courseDescriptionBox">@Model.Description</p>
-    <hr />
+    <h6 class="font-weight-bold">Duration</h6>
+    <p class="boxParagraph">Start Date: @Model.StartDate.ToString("yyyy-MM-dd")<br />Start End: @Model.EndDate.ToString("yyyy-MM-dd")</p>
 
-    <p class="boxParagraph">Start Date: @Model.StartDate.ToString("yyyy-MM-dd")</p>
-    <p class="boxParagraph">Start End: @Model.EndDate.ToString("yyyy-MM-dd")</p>
 </div>
 
 <div>

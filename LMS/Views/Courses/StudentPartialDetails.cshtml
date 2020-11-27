@@ -1,0 +1,16 @@
+﻿@model LMS.Models.ViewModels.StudentDetailsViewModel
+
+<div class="">
+    <br />
+    <h4 class="boxTitle">Student Details</h4>
+    <div class="">
+        <h4 class="nameTitle">First Name: @Model.FirstName</h4>
+        <h4 class="nameTitle">Last Name: @Model.LastName</h4>
+        <h4 class="nameTitle">User Name: @Model.UserName</h4>
+        <h4 class="nameTitle">Email: @Model.Email</h4>
+
+    </div>
+    <div class="">
+        <a asp-controller="Modules" asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+    </div>
+</div>
