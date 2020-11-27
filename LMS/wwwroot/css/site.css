@@ -88,12 +88,6 @@ a:hover,
 .navColor {
     background-color: #d7d7d7 !important;
 }
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -119,8 +113,9 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 hr{
     margin-bottom: 0;
@@ -218,6 +213,10 @@ body {
 .myListGroupItem {
     padding: 2px 4px;
 }
+.myListGroupItem:hover {
+    color: black;
+    font-weight: 900;
+}
 .courseNameBox {
     border: 1px solid black;
 }
@@ -295,6 +294,7 @@ body {
 .boxTitle {
     font-size: 14px;
     font-weight: 700;
+    margin-bottom: 4px;
 }
 .nameTitle {
     font-size: 14px;
@@ -403,7 +403,7 @@ body {
     margin-bottom: 15px;
 }
 .colHeight {
-    min-height: 280px;
+    height: 280px;
 }
 .typeBox{
     font-weight: 900;
@@ -476,7 +476,19 @@ body {
     height: 20px;
     padding-right: 4px;
 }
+.act {
+    font-weight: 700;
+}
+.activityIconBig {
+    height: 35px;
+    padding-left: 15px;
+}
 #studentListHeader {
     visibility: hidden;
 }
+#accordionModule {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
 
