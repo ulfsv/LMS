@@ -13,6 +13,6 @@
 
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn myBtnEdit">Edit</a>
-    <a asp-controller="Activities" asp-action="Create" class="btn myBtnAdd">Add New Activity</a>
+    <a asp-controller="Activities" asp-action="Create" asp-route-id="@Model.Id" class="btn myBtnAdd">Add New Activity</a>
 </div>
 

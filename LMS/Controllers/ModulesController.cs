@@ -87,6 +87,8 @@ namespace LMS.Controllers
             //ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
             var module = new Module();
             module.CourseId = (int)id;
+            module.StartDate = DateTime.Now;
+            module.EndDate = DateTime.Now;
             //ViewData["CourseId"] = id;
             return View(module);
         }
@@ -102,7 +104,7 @@ namespace LMS.Controllers
             {
                 db.Add(@module);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("TeacherOverView", "Courses");
             }
             ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name", @module.CourseId);
             return View(@module);
