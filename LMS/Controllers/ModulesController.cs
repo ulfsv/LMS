@@ -82,9 +82,10 @@ namespace LMS.Controllers
         }
 
         // GET: Modules/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
+            //ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
+            ViewData["CourseId"] = id;
             return View();
         }
 

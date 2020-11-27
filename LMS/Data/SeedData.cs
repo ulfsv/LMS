@@ -60,12 +60,13 @@ namespace LMS.Data
                 {
                     var fName = fake.Name.FirstName();
                     var lName = fake.Name.LastName();
+                    var email = fake.Internet.Email($"{fName} {lName}");
                     var teacher = new ApplicationUser
                     {
                         FirstName = fName,
                         LastName = lName,
-                        Email = fake.Internet.Email($"{fName} {lName}"),
-                        UserName = fake.Internet.Email($"{fName} {lName}"),
+                        Email = email,
+                        UserName = email,
                         CourseId = courses[rnd.Next(courses.Count)].Id
                     };
                     var results = await userManger.CreateAsync(teacher, adminPW);
@@ -76,12 +77,14 @@ namespace LMS.Data
                 {
                     var fName = fake.Name.FirstName();
                     var lName = fake.Name.LastName();
+                    var email = fake.Internet.Email($"{fName} {lName}");
+
                     var student = new ApplicationUser
                     {
                         FirstName = fName,
                         LastName = lName,
-                        Email = fake.Internet.Email($"{fName} {lName}"),
-                        UserName = fake.Internet.Email($"{fName} {lName}"),
+                        Email = email,
+                        UserName = email,
                         CourseId = courses[rnd.Next(courses.Count)].Id
                     };
                     await userManger.CreateAsync(student, adminPW);
