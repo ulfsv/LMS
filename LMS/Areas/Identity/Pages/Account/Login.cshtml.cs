@@ -22,7 +22,7 @@ namespace LMS.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, 
+        public LoginModel(SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<ApplicationUser> userManager)
         {
@@ -76,9 +76,6 @@ namespace LMS.Areas.Identity.Pages.Account
         {
             //returnUrl = returnUrl ?? Url.Content("~/Identity/Account/Login");
 
-            //if (User.IsInRole("Teacher"))
-            returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
-
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
@@ -86,6 +83,10 @@ namespace LMS.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    if (User.IsInRole("Teacher"))
+                    {
+                        returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
+                    }
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
