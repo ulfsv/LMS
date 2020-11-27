@@ -196,7 +196,6 @@ body {
 }
 .nextCourseInfo {
     margin: 14px 0;
-    letter-spacing: 1px;
     font-size: 20px;
 }
 .quotes {
@@ -311,6 +310,7 @@ body {
 .boxParagraph {
     width: 100%;
     font-weight: 900;
+    font-size: 14px;
 }
 
 .colPadding {
