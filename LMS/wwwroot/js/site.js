@@ -158,6 +158,7 @@ function updateStudentsList() {
         .then(res => res.text())
         .then(data => {
             studentsListContainer.innerHTML = data;
+            studentListHeader.style.visibility = "visible";
 
         })
         .catch(err => console.log(err));

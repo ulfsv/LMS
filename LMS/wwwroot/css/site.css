@@ -177,8 +177,10 @@ body {
 .activityDocuments {
     height: 100%;
 }
-.studentListBox,
-.courseInfoBox{
+.studentListBox {
+    max-height: 370px;
+}
+.courseInfoBox {
     max-height: 370px;
     padding-top: 15px
 }
@@ -471,5 +473,8 @@ body {
 .activityIcon {
     height: 20px;
     padding-right: 4px;
+}
+#studentListHeader {
+    visibility: hidden;
 }
 
