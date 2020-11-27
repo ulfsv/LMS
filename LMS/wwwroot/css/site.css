@@ -227,21 +227,7 @@ body {
 .paddingTop {
     padding-top: 15px;
 }
-.activityDescription {
-    font-size: 20px;
-    font-weight: 700;
-}
-.moduleBox {
-    border: 1px solid gray;
-    height: 350px;
-    background-color: dimgray;
-}
-.activityBox {
-    /*border-left: 1px solid gray;*/
-    height: 350px;
-    padding: 2px 4px;
-    margin-right: 3px;
-}
+
 .infoBox {
     border: 1px solid black;
     /*overflow-y: scroll;*/
@@ -281,11 +267,6 @@ body {
     font-size: 1.3rem;
     font-weight: 700;
 }
-.myCollapse {
-    min-height: 102px;
-    overflow-y: scroll;
-}
-
 .bgBox {
     border: 1px solid black;
     margin-bottom: 15px;
@@ -367,6 +348,7 @@ body {
     background-color: wheat;
     letter-spacing: 1px;
     max-height: 248px;
+    border-radius: 5px;
 }
 
 .docEmptyListMessage {
@@ -423,5 +405,71 @@ body {
     font-weight: 900;
     font-size: 14px;
 }
-
+.modulesList {
+    font-size: 12px !important;
+}
+.activityList {
+    font-size: 11px !important;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.modulesList:hover,
+.activityList:hover {
+    font-weight: 700;
+}
+.moduleBox {
+    border: 1px solid gray;
+    height: 350px;
+    background-color: dimgray;
+}
+.moduleTitleList {
+    padding: 0;
+    margin: 0;
+}
+.moduleBoxTitle {
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 5px;
+}
+.moduleBox {
+    padding: 10px 0 0;
+    height: 295px;
+    border-radius: 5px;
+    background-color: #a8a8a8;
+}
+.activityDescription {
+    font-size: 20px;
+    font-weight: 700;
+}
+.activityBox {
+    /*border-left: 1px solid gray;*/
+    height: 350px;
+    padding: 2px 4px;
+    margin-right: 3px;
+}
+.myListGroupModules {
+    padding: 2px 4px;
+    text-decoration: none;
+    text-align: left;
+    margin-bottom: 1px;
+}
+.myListGroupActivity {
+    margin-bottom: 1px;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+    background-color: #d7d7d7;
+}
+.myCollapse {
+    max-height: 150px;
+    overflow-y: scroll;
+    margin: 5px 5px 5px 15px;
+    border-radius: 5px;
+    background-color: #d7d7d7;
+}
+.activityIcon {
+    height: 20px;
+    padding-right: 4px;
+}
 
