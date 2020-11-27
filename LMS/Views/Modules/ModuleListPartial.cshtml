@@ -12,7 +12,7 @@
             <ul class="myListGroupModules MyModuleListPostition">
                 <li id="X@(item.Id)" class="list-group-item myListGroupModules moduleSelector" data-toggle="collapse"
                     data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
-                    <h4 class="moduleTitleList myListGroupItem modulesList">@item.Name</h4>
+                    <h4 class="moduleTitleList myListGroupItem modulesList"><span class="act">MOD - </span> @item.Name</h4>
                 </li>
             </ul>
 
@@ -21,7 +21,7 @@
                 @foreach (var activity in item.Activities)
                 {
                     <ul id="A@(activity.Id)" class="myListGroupActivity activitySelector cursor">
-                        <li class="myListGroupItem activityList"><img src="~/Images/activity.png" class="activityIcon" alt="Activity image" />@activity.Name</li>
+                        <li class="myListGroupItem activityList"><span class="act">ACT - </span> @activity.Name</li>
                     </ul>
                 }
             </div>
