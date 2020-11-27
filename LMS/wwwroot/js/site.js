@@ -11,7 +11,6 @@ $(document).ready(function () {
         courses[i].addEventListener('click', getModuleList);
         courses[i].addEventListener('click', updateCourseDetails);
         courses[i].addEventListener('click', updateCourseDocumentList);
-
         courses[i].addEventListener('click', updateStudentsList);
 
     }
@@ -159,10 +158,26 @@ function updateStudentsList() {
         .then(data => {
             studentsListContainer.innerHTML = data;
             studentListHeader.style.visibility = "visible";
-
+            let students = document.getElementsByClassName("studentSelector");
+            for (var i = 0; i < students.length; i++) {
+                students[i].addEventListener('click', updateStudentDetails);
+            }
         })
         .catch(err => console.log(err));
 };
+
+function updateStudentDetails() {
+    let id = (this.id).substr(1);
+    fetch(localUrl + '/Courses/GetStudentDetails/' + id,
+        {
+            method: 'GET',
+        })
+        .then(res => res.text())
+        .then(data => {
+            studentsDetailsContainer.innerHTML = data;
+        })
+        .catch(err => console.log(err));
+}
 
 
 

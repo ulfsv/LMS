@@ -178,7 +178,9 @@ body {
     height: 100%;
 }
 .studentListBox {
-    max-height: 370px;
+    height: 135px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 .courseInfoBox {
     max-height: 370px;
