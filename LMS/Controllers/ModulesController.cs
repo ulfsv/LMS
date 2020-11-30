@@ -25,6 +25,8 @@ namespace LMS.Controllers
             var moduleList = await db.Modules
                 .Include(a => a.Activities)
                 .Where(c => c.CourseId == Id)
+                .OrderBy(m=>m.StartDate)
+                //.ThenBy(m=>m.Activities.)
                 .ToListAsync();
             var course = await db.Courses.Where(x => x.Id == Id).SingleAsync();
             var model = new Models.ViewModels.ModuleListViewModel

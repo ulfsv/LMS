@@ -1,18 +1,20 @@
 ﻿@model LMS.Models.ViewModels.StudentDetailsViewModel
 
 <div class="">
-    <h4 class="boxTitle">Course</h4>
-    <div class="colHeight">
-        <h4 class="quotes nameTitle">@Model.Course.Name</h4>
+    <br />
+    <h4 class="boxTitle">Student Details</h4>
 
-        <h5 class="nameH5">Student: @Model.StudentName</h5>
-        <h4 class="font-weight-bold">Course Description</h4>
-        <p class="courseDescriptionBox">@Model.Course.Description</p>
-        <hr />
-        <H6 class="font-weight-bold">Course Start Date</H6>
-        <p class="boxParagraph">@Model.Course.StartDate.ToString("yyyy-MM-dd")</p>
+    <div class="">
+        <h4 class="nameTitle">First Name: @Model.FirstName</h4>
+        <h4 class="nameTitle">Last Name: @Model.LastName</h4>
+        <h4 class="nameTitle">User Name: @Model.UserName</h4>
+        <h4 class="nameTitle">Email: @Model.Email</h4>
+
     </div>
-    <div>
-     
+    @if (User.IsInRole("Teacher"))
+    {
+        <div>
+            <a asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+        </div>
+    }
     </div>
-</div>

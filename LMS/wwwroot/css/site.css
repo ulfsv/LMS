@@ -126,12 +126,16 @@ body {
     font-family: Roboto;
     min-width: 1450px;
     overflow: auto;
+    background-color: lightgray;
 }
 
 
 /* LandingPageStyle */
-.bodyColor {
-    background-color: wheat;
+.bodyColorTeacher {
+    background-color: #f2e2c475;
+}
+.bodyColorStudent {
+    background-color: #d3d3d382;
 }
 .textCenter {
     text-align: center;
@@ -418,8 +422,10 @@ body {
     text-decoration: none;
 }
 .modulesList:hover,
-.activityList:hover {
+.activityList:hover,
+.myListGroupItem {
     font-weight: 700;
+    cursor: pointer;
 }
 .moduleBox {
     border: 1px solid gray;

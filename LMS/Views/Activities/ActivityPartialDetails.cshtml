@@ -9,7 +9,9 @@
     <h6 class="font-weight-bold">Duration</h6>
     <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")<br />End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm") </p>
 </div>
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn myBtnEdit">Edit</a>
-</div>
+@if (User.IsInRole("Teacher"))
+{
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn myBtnEdit">Edit</a>
+    </div>
+}

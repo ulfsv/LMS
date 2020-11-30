@@ -72,7 +72,7 @@ namespace LMS.Controllers
             activity.ModuleId = (int)id;
             activity.StartTime = DateTime.Now;
             activity.EndTime = DateTime.Now;
-            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id");
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "TypeName");
             return View(activity);
         }
 
@@ -89,7 +89,7 @@ namespace LMS.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Name", aktivitet.ActivityTypeId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "TypeName", aktivitet.ActivityTypeId);
             //ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
             return View(aktivitet);
         }

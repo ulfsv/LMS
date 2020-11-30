@@ -83,12 +83,17 @@ namespace LMS.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByEmailAsync(Input.Email);
-                    var isTeacher = await _userManager.IsInRoleAsync(user, "Teacher");
-                    if (isTeacher)
-                    {
-                        returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
-                    }
+                    //var user = await _userManager.FindByEmailAsync(Input.Email);
+                    //var isTeacher = await _userManager.IsInRoleAsync(user, "Teacher");
+                    //if (isTeacher)
+                    //{
+                    //    returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
+                    //}
+                    //else
+                    //{
+                    //    returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
+                    //}
+                    returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
