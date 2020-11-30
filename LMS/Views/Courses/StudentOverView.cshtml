@@ -5,6 +5,23 @@
     ViewData["Title"] = "Student Course Overview";
 }
 
+<h1>Teacher Course Overview</h1>
+
+<div class="form-group form-check">
+    <form asp-action="TeacherOverView">
+        <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
+        <label class="form-check-label">Show All Courses</label>
+    </form>
+</div>
+
+@*Welcome text teacher*@
+<div class="nextCourseInfo">
+    Welcome <span class="font-weight-bold">@activityService.GetActivity(User).UserName</span>
+    Your next activity
+    <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
+    starts at
+    <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
+</div>
 <div class="row">
     @*Courses and module box to the left*@
     <div class="col-3">
@@ -18,7 +35,7 @@
                     </ul>
                 }
             </div>
-            @*<a asp-action="Create" class="btn myBtnAdd">Add New Course</a>*@
+            
 
             <hr />
             <div class="col-sm-12 modulBox colPadding" id="moduleListContainer">
@@ -26,6 +43,60 @@
             </div>
         </div>
     </div>
+    <!--Course and Student list-->
+    <div class="col-sm-9 infoBox">
+        <div class="row">
+            <div class="col-sm-6 borderBottomBox">
+                <div class="row">
+                    @*Course information box*@
+                    <div class="col-sm-6">
+                        <div id="studentDetailsContainer"></div>
+                    </div>
+                    @*Course document box*@
+                    <div class="col-sm-6">
+                        <div>&nbsp;</div>
+                        <div id="courseDocId"></div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-sm-6 borderRightBox borderBottomBox">
+                <h3 class="boxTitle">Students</h3>
+                <div id="studentsListContainer"></div>
+            </div>
+        </div>
 
+        <!--Module-->
+        <div class="row">
+            <div class="col-sm-6 borderTopBox borderSideBox">
+                <div class="row">
+                    @*Module information box*@
+                    <div class="col-sm-6">
+                        <div id="moduleDetailsContainer"></div>
+                    </div>
+                    @*Module document box*@
+                    <div class="col-sm-6">
+                        <div>&nbsp;</div>
+                        <div id="moduleDocId"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Activity-->
+            <div class="col-sm-6 borderTopBox">
+                <div class="row">
+                    @*Module information box*@
+                    <div class="col-sm-6">
+                        <div id="activityDetailsContainer"></div>
+                    </div>
+                    @*Module document box*@
+                    <div class="col-sm-6">
+                        <div>&nbsp;</div>
+                        <div id="activityDocId"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -66,6 +66,45 @@ namespace LMS.Controllers
 
         // END Student OverView
 
+
+        // GET: Courses/PartialDetails/5
+        public async Task<IActionResult> StudentPartialDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await db.Courses
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            var students = await userManager.GetUsersInRoleAsync("Student");
+            var student = students.Where(s => s.CourseId == id).SingleOrDefault();
+
+            var viewModel = new StudentDetailsViewModel();
+            viewModel.Course = course;
+
+            if (student is null)
+                viewModel.StudentName = "No student chosen";
+            else
+                viewModel.StudentName = student.FullName;
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("StudentPartialDetails", viewModel);
+        }
+
+        // END Student 
+
+
+
+
+
+
+
         // GET: Courses
         public async Task<IActionResult> Index()
         {
