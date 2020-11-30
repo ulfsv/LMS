@@ -66,11 +66,14 @@ namespace LMS.Controllers
         }
 
         // GET: Aktivitets/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
+            var activity = new Aktivitet();
+            activity.ModuleId = (int)id;
+            activity.StartTime = DateTime.Now;
+            activity.EndTime = DateTime.Now;
             ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id");
-            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id");
-            return View();
+            return View(activity);
         }
 
         // POST: Aktivitets/Create
@@ -78,7 +81,7 @@ namespace LMS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,StartTime,EndTime,ModuleId,ActivityTypeId")] Aktivitet aktivitet)
+        public async Task<IActionResult> Create([Bind("Name,Description,StartTime,EndTime,ModuleId,ActivityTypeId")] Aktivitet aktivitet)
         {
             if (ModelState.IsValid)
             {
@@ -86,8 +89,8 @@ namespace LMS.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Id", aktivitet.ActivityTypeId);
-            ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
+            ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "Name", aktivitet.ActivityTypeId);
+            //ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
             return View(aktivitet);
         }
 

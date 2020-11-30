@@ -88,12 +88,6 @@ a:hover,
 .navColor {
     background-color: #d7d7d7 !important;
 }
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -119,8 +113,9 @@ button.accept-policy {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 hr{
     margin-bottom: 0;
@@ -177,8 +172,12 @@ body {
 .activityDocuments {
     height: 100%;
 }
-.studentListBox,
-.courseInfoBox{
+.studentListBox {
+    height: 135px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.courseInfoBox {
     max-height: 370px;
     padding-top: 15px
 }
@@ -192,7 +191,6 @@ body {
 }
 .nextCourseInfo {
     margin: 14px 0;
-    letter-spacing: 1px;
     font-size: 20px;
 }
 .quotes {
@@ -215,6 +213,10 @@ body {
 .myListGroupItem {
     padding: 2px 4px;
 }
+.myListGroupItem:hover {
+    color: black;
+    font-weight: 900;
+}
 .courseNameBox {
     border: 1px solid black;
 }
@@ -227,21 +229,7 @@ body {
 .paddingTop {
     padding-top: 15px;
 }
-.activityDescription {
-    font-size: 20px;
-    font-weight: 700;
-}
-.moduleBox {
-    border: 1px solid gray;
-    height: 350px;
-    background-color: dimgray;
-}
-.activityBox {
-    /*border-left: 1px solid gray;*/
-    height: 350px;
-    padding: 2px 4px;
-    margin-right: 3px;
-}
+
 .infoBox {
     border: 1px solid black;
     /*overflow-y: scroll;*/
@@ -281,11 +269,6 @@ body {
     font-size: 1.3rem;
     font-weight: 700;
 }
-.myCollapse {
-    min-height: 102px;
-    overflow-y: scroll;
-}
-
 .bgBox {
     border: 1px solid black;
     margin-bottom: 15px;
@@ -311,6 +294,7 @@ body {
 .boxTitle {
     font-size: 14px;
     font-weight: 700;
+    margin-bottom: 4px;
 }
 .nameTitle {
     font-size: 14px;
@@ -326,6 +310,7 @@ body {
 .boxParagraph {
     width: 100%;
     font-weight: 900;
+    font-size: 14px;
 }
 
 .colPadding {
@@ -367,6 +352,7 @@ body {
     background-color: wheat;
     letter-spacing: 1px;
     max-height: 248px;
+    border-radius: 5px;
 }
 
 .docEmptyListMessage {
@@ -417,11 +403,92 @@ body {
     margin-bottom: 15px;
 }
 .colHeight {
-    min-height: 280px;
+    height: 280px;
 }
 .typeBox{
     font-weight: 900;
     font-size: 14px;
+}
+.modulesList {
+    font-size: 12px !important;
+}
+.activityList {
+    font-size: 11px !important;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.modulesList:hover,
+.activityList:hover {
+    font-weight: 700;
+}
+.moduleBox {
+    border: 1px solid gray;
+    height: 350px;
+    background-color: dimgray;
+}
+.moduleTitleList {
+    padding: 0;
+    margin: 0;
+}
+.moduleBoxTitle {
+    color: black;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 5px;
+}
+.moduleBox {
+    padding: 10px 0 0;
+    height: 295px;
+    border-radius: 5px;
+    background-color: #a8a8a8;
+}
+.activityDescription {
+    font-size: 20px;
+    font-weight: 700;
+}
+.activityBox {
+    /*border-left: 1px solid gray;*/
+    height: 350px;
+    padding: 2px 4px;
+    margin-right: 3px;
+}
+.myListGroupModules {
+    padding: 2px 4px;
+    text-decoration: none;
+    text-align: left;
+    margin-bottom: 1px;
+}
+.myListGroupActivity {
+    margin-bottom: 1px;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+    background-color: #d7d7d7;
+}
+.myCollapse {
+    max-height: 150px;
+    overflow-y: scroll;
+    margin: 5px 5px 5px 15px;
+    border-radius: 5px;
+    background-color: #d7d7d7;
+}
+.activityIcon {
+    height: 20px;
+    padding-right: 4px;
+}
+.act {
+    font-weight: 700;
+}
+.activityIconBig {
+    height: 35px;
+    padding-left: 15px;
+}
+#studentListHeader {
+    visibility: hidden;
+}
+#accordionModule {
+    max-height: 240px;
+    overflow-y: auto;
 }
 
 

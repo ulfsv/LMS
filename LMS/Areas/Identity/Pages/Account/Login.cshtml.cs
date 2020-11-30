@@ -83,7 +83,9 @@ namespace LMS.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    if (User.IsInRole("Teacher"))
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+                    var isTeacher = await _userManager.IsInRoleAsync(user, "Teacher");
+                    if (isTeacher)
                     {
                         returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
                     }

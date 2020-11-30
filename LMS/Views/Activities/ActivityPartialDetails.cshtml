@@ -1,16 +1,13 @@
 ﻿@model LMS.Models.Aktivitet
 
-<h4 class="boxTitle">Activity</h4>
+<h4 class="boxTitle">Activity (ACT)</h4>
 <div class="colHeight">
     <h4 class="quotes nameTitle">@Model.Name</h4>
+    <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
     <h4 class="font-weight-bold">Activity Description</h4>
     <p class="courseDescriptionBox">@Model.Description</p>
-
-    <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
-    <hr />
-
-    <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")</p>
-    <p class="boxParagraph">End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm")</p>
+    <h6 class="font-weight-bold">Duration</h6>
+    <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")<br />End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm") </p>
 </div>
 
 <div>

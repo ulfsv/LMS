@@ -179,6 +179,25 @@ namespace LMS.Controllers
 
         // END Student List
 
+        // Student Details
+        // GET: Student/List/5
+        public async Task<IActionResult> GetStudentDetails(string id)
+        {
+
+
+            var student = await db.ApplicationUsers.Where(u => u.Id == id).FirstAsync();
+
+            var model = new StudentDetailsViewModel()
+            {
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                UserName = student.UserName,
+                Email = student.Email
+            };
+
+            return PartialView("StudentPartialDetails", model);
+        }
+
         [Authorize(Roles = "Teacher")]
         // GET: Courses/Create
         public IActionResult Create()

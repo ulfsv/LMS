@@ -82,10 +82,15 @@ namespace LMS.Controllers
         }
 
         // GET: Modules/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
-            return View();
+            //ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
+            var module = new Module();
+            module.CourseId = (int)id;
+            module.StartDate = DateTime.Now;
+            module.EndDate = DateTime.Now;
+            //ViewData["CourseId"] = id;
+            return View(module);
         }
 
         // POST: Modules/Create
@@ -93,13 +98,13 @@ namespace LMS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,StartDate,EndDate,CourseId")] Module @module)
+        public async Task<IActionResult> Create([Bind("Name,Description,StartDate,EndDate,CourseId")] Module @module)
         {
             if (ModelState.IsValid)
             {
                 db.Add(@module);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("TeacherOverView", "Courses");
             }
             ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name", @module.CourseId);
             return View(@module);

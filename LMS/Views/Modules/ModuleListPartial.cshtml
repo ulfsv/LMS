@@ -2,34 +2,29 @@
 
 <div>
 
-    <h3 class="boxTitle">Modules and Activities</h3>
+    <h3 class="moduleBoxTitle">Modules and Activities</h3>
 
-    <div class="bgBox">
-        <div class="accordion" id="accordionExample">
-            <div class="card">
+    <div class="accordion" id="accordionModule">
 
-                @foreach (var item in Model.ModuleList)
+        @foreach (var item in Model.ModuleList)
+        {
+
+            <ul class="myListGroupModules MyModuleListPostition">
+                <li id="X@(item.Id)" class="list-group-item myListGroupModules moduleSelector" data-toggle="collapse"
+                    data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
+                    <h4 class="moduleTitleList myListGroupItem modulesList"><span class="act">MOD - </span> @item.Name</h4>
+                </li>
+            </ul>
+
+            <div id="M@(item.Id)" class="collapse myCollapse color" aria-labelledby="headingOne"
+                 data-parent="#accordionModule">
+                @foreach (var activity in item.Activities)
                 {
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button id="X@(item.Id)" class="btn btn-block text-left myBtn moduleSelector" type="button" data-toggle="collapse"
-                                    data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
-                                <h4 class="moduleTitle">@item.Name</h4>
-                            </button>
-                        </h2>
-                    </div>
-
-                    <div id="M@(item.Id)" class="collapse myCollapse" aria-labelledby="headingOne"
-                         data-parent="#accordionExample">
-                        @foreach (var activity in item.Activities)
-                        {
-                            <div id="A@(activity.Id)" class="card-body activitySelector cursor">
-                                <h6>@activity.Name</h6>
-                            </div>
-                        }
-                    </div>
+                    <ul id="A@(activity.Id)" class="myListGroupActivity activitySelector cursor">
+                        <li class="myListGroupItem activityList"><span class="act">ACT - </span> @activity.Name</li>
+                    </ul>
                 }
             </div>
-        </div>
+        }
     </div>
 </div>
