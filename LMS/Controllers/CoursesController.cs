@@ -42,68 +42,12 @@ namespace LMS.Controllers
             if (ShowAllCourses)
                 model.Courses = await db.Courses.ToListAsync();
 
+            model.PreSelectedCourse = courseId.Value;
+
             return View(model);
         }
 
         // END Teacher OverView
-
-        // Student OverView
-        public async Task<IActionResult> StudentOverView(bool ShowAllCourses)
-        {
-            var model = new StudentOverViewModel();
-
-            var userId = userManager.GetUserId(User);
-            var courseId = await db.ApplicationUsers.Where(u => u.Id == userId)
-                .Select(u => u.CourseId).SingleAsync();
-            var attendingCourse = await db.Courses.Where(c => c.Id == courseId).ToListAsync();
-            if (!ShowAllCourses)
-                model.Courses = attendingCourse;
-            if (ShowAllCourses)
-                model.Courses = await db.Courses.ToListAsync();
-
-            return View(model);
-        }
-
-        // END Student OverView
-
-
-        // GET: Courses/PartialDetails/5
-        public async Task<IActionResult> StudentPartialDetails(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var course = await db.Courses
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            var students = await userManager.GetUsersInRoleAsync("Student");
-            var student = students.Where(s => s.CourseId == id).SingleOrDefault();
-
-            var viewModel = new StudentDetailsViewModel();
-            viewModel.Course = course;
-
-            if (student is null)
-                viewModel.StudentName = "No student chosen";
-            else
-                viewModel.StudentName = student.FullName;
-
-            if (course == null)
-            {
-                return NotFound();
-            }
-
-            return PartialView("StudentPartialDetails", viewModel);
-        }
-
-        // END Student 
-
-
-
-
-
-
 
         // GET: Courses
         public async Task<IActionResult> Index()
@@ -111,7 +55,7 @@ namespace LMS.Controllers
             return View(await db.Courses.ToListAsync());
         }
 
-        [Authorize(Roles = "Teacher, Student")]        
+        [Authorize(Roles = "Teacher, Student")]
         // GET: Courses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
