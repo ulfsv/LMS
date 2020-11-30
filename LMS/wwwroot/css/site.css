@@ -126,13 +126,16 @@ body {
     font-family: Roboto;
     min-width: 1450px;
     overflow: auto;
-    background-color: #e0f8e0;
+    background-color: lightgray;
 }
 
 
 /* LandingPageStyle */
-.bodyColor {
-    background-color: wheat;
+.bodyColorTeacher {
+    background-color: #f2e2c475;
+}
+.bodyColorStudent {
+    background-color: #d3d3d382;
 }
 .textCenter {
     text-align: center;
@@ -224,7 +227,7 @@ body {
 .coursesBox {
     border: 1px solid black;
     height: 795px;
-    background-color: #e2f5e2;
+    background-color: wheat;
     padding: 0 10px;
 }
 .paddingTop {
@@ -234,7 +237,7 @@ body {
 .infoBox {
     border: 1px solid black;
     /*overflow-y: scroll;*/
-    background-color: #e2f5e2;
+    background-color: wheat;
 }
 .card {
     max-height: 235px;
@@ -285,7 +288,7 @@ body {
     text-align: center;
     height: auto;
     /*overflow-y: scroll;*/
-    background-color: #e2f5e2;
+    background-color: wheat;
 }
 .courseName {
     font-size: 1.5rem;
@@ -350,7 +353,7 @@ body {
     overflow-x: auto;
     overflow-y: auto;
     color: black;
-    background-color: #e2f5e2;
+    background-color: wheat;
     letter-spacing: 1px;
     max-height: 248px;
     border-radius: 5px;
