@@ -13,6 +13,7 @@ namespace LMS.Models.ViewModels
         public ApplicationUser Teacher { get; set; }
         public string NextCourse { get; set; }
         public bool ShowAllCourses { get; set; }
+        public int PreSelectedCourse { get; set; }
 
     }
 }

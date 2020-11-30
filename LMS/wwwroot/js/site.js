@@ -14,6 +14,14 @@ $(document).ready(function () {
         courses[i].addEventListener('click', updateStudentsList);
 
     }
+    let preSelectedCourses = document.getElementsByClassName("preSelectedCourse");
+    if (preSelectedCourses.length > 0) {
+        let id = preSelectedCourses[0].id;
+        getModuleListById(id);
+        updateCourseDetailsById(id);
+        updateCourseDocumentListById(id);
+        updateStudentsListById(id);
+    }
 })
 
 $(document).ready(function () {
@@ -28,6 +36,10 @@ let localUrl = 'https://localhost:44360';
 
 async function getModuleList() {
     let id = (this.id).substr(1);
+    await getModuleListById(id);
+}
+
+async function getModuleListById(id) {
     fetch(localUrl + '/Modules/GetModulesByCourse/' + id,
         {
             method: 'GET',
@@ -62,6 +74,10 @@ async function getModuleList() {
 /* Course Details */
 function updateCourseDetails() {
     let id = (this.id).substr(1);
+    updateCourseDetailsById(id);
+}
+
+function updateCourseDetailsById(id) {
     fetch(localUrl + '/Courses/PartialDetails/' + id,
         {
             method: 'GET',
@@ -107,6 +123,10 @@ function updateModuleDetails() {
 /*Course Document List */
 function updateCourseDocumentList() {
     let id = (this.id).substr(1);
+    updateCourseDocumentListById(id);
+}
+
+function updateCourseDocumentListById(id) {
     fetch(localUrl + '/Documents/GetForCourse/' + id,
         {
             method: 'GET',
@@ -150,6 +170,10 @@ function updateActivityDocumentList() {
 
 function updateStudentsList() {
     let id = (this.id).substr(1);
+    updateStudentsListById(id);
+}
+
+function updateStudentsListById(id) {
     fetch(localUrl + '/Courses/GetStudentsList/' + id,
         {
             method: 'GET',
