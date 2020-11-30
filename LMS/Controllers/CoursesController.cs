@@ -42,6 +42,8 @@ namespace LMS.Controllers
             if (ShowAllCourses)
                 model.Courses = await db.Courses.ToListAsync();
 
+            model.PreSelectedCourse = courseId.Value;
+
             return View(model);
         }
 
