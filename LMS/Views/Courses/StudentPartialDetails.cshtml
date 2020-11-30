@@ -10,7 +10,10 @@
         <h4 class="nameTitle">Email: @Model.Email</h4>
 
     </div>
-    <div class="">
-        <a asp-controller="Modules" asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+    @if (User.IsInRole("Teacher"))
+    {
+        <div>
+            <a asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+        </div>
+    }
     </div>
-</div>

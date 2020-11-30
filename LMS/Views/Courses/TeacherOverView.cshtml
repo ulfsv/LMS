@@ -35,7 +35,11 @@
                     </ul>
                 }
             </div>
-            <a asp-action="Create" class="btn myBtnAdd">Add New Course</a>
+
+            @if (User.IsInRole("Teacher"))
+            {
+                <a asp-action="Create" class="btn myBtnAdd">Add New Course</a>
+            }
 
             <hr />
             <div class="col-sm-12 moduleBox colPadding" id="moduleListContainer">

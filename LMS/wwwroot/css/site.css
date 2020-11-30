@@ -126,6 +126,7 @@ body {
     font-family: Roboto;
     min-width: 1450px;
     overflow: auto;
+    background-color: #e0f8e0;
 }
 
 
@@ -223,7 +224,7 @@ body {
 .coursesBox {
     border: 1px solid black;
     height: 795px;
-    background-color: wheat;
+    background-color: #e2f5e2;
     padding: 0 10px;
 }
 .paddingTop {
@@ -233,7 +234,7 @@ body {
 .infoBox {
     border: 1px solid black;
     /*overflow-y: scroll;*/
-    background-color: wheat;
+    background-color: #e2f5e2;
 }
 .card {
     max-height: 235px;
@@ -284,7 +285,7 @@ body {
     text-align: center;
     height: auto;
     /*overflow-y: scroll;*/
-    background-color: wheat;
+    background-color: #e2f5e2;
 }
 .courseName {
     font-size: 1.5rem;
@@ -349,7 +350,7 @@ body {
     overflow-x: auto;
     overflow-y: auto;
     color: black;
-    background-color: wheat;
+    background-color: #e2f5e2;
     letter-spacing: 1px;
     max-height: 248px;
     border-radius: 5px;
