@@ -419,8 +419,10 @@ body {
     text-decoration: none;
 }
 .modulesList:hover,
-.activityList:hover {
+.activityList:hover,
+.myListGroupItem {
     font-weight: 700;
+    cursor: pointer;
 }
 .moduleBox {
     border: 1px solid gray;
