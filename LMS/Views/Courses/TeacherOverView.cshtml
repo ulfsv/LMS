@@ -5,7 +5,14 @@
     ViewData["Title"] = "Teacher Course Overview";
 }
 
-<h1>Teacher Course Overview</h1>
+@if (User.IsInRole("Teacher"))
+{
+    <h1>Teacher Course Overview</h1>
+}
+else
+{
+    <h1>Course Name: <span class="quotes">@Model.Courses.First().Name</span></h1>
+}
 
 
 @*Welcome text teacher*@
@@ -16,12 +23,15 @@
     starts at
     <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
 </div>
-<div class="form-group form-check">
-    <form asp-action="TeacherOverView">
-        <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
-        <label class="form-check-label">Show All Courses</label>
-    </form>
-</div>
+@if (User.IsInRole("Teacher"))
+{
+    <div class="form-group form-check">
+        <form asp-action="TeacherOverView">
+            <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
+            <label class="form-check-label">Show All Courses</label>
+        </form>
+    </div>
+}
 <div class="row">
     @*Courses and module box to the left*@
     <div class="col-3">
