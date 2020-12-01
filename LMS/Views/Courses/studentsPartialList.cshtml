@@ -1,18 +1,25 @@
 ﻿@model List<LMS.Models.ApplicationUser>
 
-<div class="studentListBox">
-    <div class="row">
-        <div class="col-sm-12">
+<div class="">
+    <div class="studentListBox colHeight">
+        <h3 id="studentListHeader" class="boxTitle">List of Course Students</h3>
+        <div class="row">
+            <div class="col-sm-12">
 
-            @foreach (var student in Model)
-            {
-                <ul class="list-group myListGroup">
-                    <li id="S@(student.Id)" class="list-group-item studentSelector myListGroupItem cursor">@student.FullName</li>
-                </ul>
-            }
-            @*<div class="col-sm-6">
-                <button class="btn myBtnAdd">New Student</button>
-            </div>*@
+                @foreach (var student in Model)
+                {
+                    <ul class="list-group myListGroup">
+                        <li id="S@(student.Id)" class="list-group-item studentSelector myListGroupItem cursor">@student.FullName</li>
+                    </ul>
+                }
+            </div>
         </div>
     </div>
+    <div>&nbsp;</div>
+    @if (User.IsInRole("Teacher"))
+    {
+        <div>
+            <a asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+        </div>
+    }
 </div>
