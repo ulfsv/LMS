@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using LMS.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LMS.Areas.Identity.Pages.Account
 {
@@ -24,17 +26,19 @@ namespace LMS.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext db;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            db = context;
         }
 
         [BindProperty]
@@ -46,6 +50,15 @@ namespace LMS.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            [Display(Name = "Course")]
+            public int? CourseId { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -66,6 +79,8 @@ namespace LMS.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+
+            ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -75,8 +90,11 @@ namespace LMS.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser {  FirstName = Input.FirstName,LastName=Input.LastName,
+                    UserName = Input.Email, Email = Input.Email, CourseId = Input.CourseId};
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                var result2 = await _userManager.AddToRoleAsync(user, "Student");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
