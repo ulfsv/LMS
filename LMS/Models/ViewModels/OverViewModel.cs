@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Models.ViewModels
 {
-    public class TeacherOverViewModel
+    public class OverViewModel
     {
         // Lists
         public List<Course> Courses { get; set; }

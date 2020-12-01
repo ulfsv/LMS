@@ -1,4 +1,4 @@
-﻿@model LMS.Models.ViewModels.TeacherOverViewModel
+﻿@model LMS.Models.ViewModels.OverViewModel
 @inject LMS.Services.INextActivityService activityService
 
 @{
@@ -26,7 +26,7 @@ else
 @if (User.IsInRole("Teacher"))
 {
     <div class="form-group form-check">
-        <form asp-action="TeacherOverView">
+        <form asp-action="OverView">
             <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
             <label class="form-check-label">Show All Courses</label>
         </form>

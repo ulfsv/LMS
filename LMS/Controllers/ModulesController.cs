@@ -106,7 +106,7 @@ namespace LMS.Controllers
             {
                 db.Add(@module);
                 await db.SaveChangesAsync();
-                return RedirectToAction("TeacherOverView", "Courses");
+                return RedirectToAction("OverView", "Courses");
             }
             ViewData["CourseId"] = new SelectList(db.Courses, "Id", "Name", @module.CourseId);
             return View(@module);

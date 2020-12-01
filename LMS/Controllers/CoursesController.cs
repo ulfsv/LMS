@@ -29,9 +29,9 @@ namespace LMS.Controllers
 
         // Teacher OverView
         //[Authorize(Roles = "Teacher")]
-        public async Task<IActionResult> TeacherOverView(bool ShowAllCourses)
+        public async Task<IActionResult> OverView(bool ShowAllCourses)
         {
-            var model = new TeacherOverViewModel();
+            var model = new OverViewModel();
 
             var userId = userManager.GetUserId(User);
             var courseId = await db.ApplicationUsers.Where(u => u.Id == userId)

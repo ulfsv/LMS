@@ -27,7 +27,7 @@
                         @if (User.IsInRole("Teacher"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="TeacherOverView">Teacher Overview</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Overview">Teacher Overview</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Create">Add Course</a>
@@ -36,7 +36,7 @@
                         else if (User.IsInRole("Student"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="StudentOverView">Student Overview</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Overview">Student Overview</a>
                             </li>
                         }
                     </ul>

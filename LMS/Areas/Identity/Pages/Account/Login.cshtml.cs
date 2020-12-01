@@ -93,7 +93,7 @@ namespace LMS.Areas.Identity.Pages.Account
                     //{
                     //    returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
                     //}
-                    returnUrl = returnUrl ?? Url.Content("~/Courses/TeacherOverview");
+                    returnUrl = returnUrl ?? Url.Content("~/Courses/Overview");
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
