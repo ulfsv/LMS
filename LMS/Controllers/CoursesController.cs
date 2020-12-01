@@ -55,7 +55,7 @@ namespace LMS.Controllers
             return View(await db.Courses.ToListAsync());
         }
 
-        [Authorize(Roles = "Teacher, Student")]        
+        [Authorize(Roles = "Teacher, Student")]
         // GET: Courses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -86,7 +86,7 @@ namespace LMS.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             var teachers = await userManager.GetUsersInRoleAsync("Teacher");
-            var teacher = teachers.Where(s => s.CourseId == id).SingleOrDefault();
+            var teacher = teachers.FirstOrDefault(s => s.CourseId == id);
 
             var viewModel = new CourseDetailsViewModel();
             viewModel.Course = course;
