@@ -22,10 +22,14 @@ namespace LMS.Models
 
         [Required]
         [DisplayName("Start Time")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd zz}", ApplyFormatInEditMode = true)]
         public DateTime StartTime { get; set; }
 
         [Required]
         [DisplayName("End Time")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd zz}", ApplyFormatInEditMode = true)]
         public DateTime EndTime { get; set; }
 
         // Foreign key

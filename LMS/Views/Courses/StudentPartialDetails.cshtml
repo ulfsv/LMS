@@ -1,20 +1,12 @@
 ﻿@model LMS.Models.ViewModels.StudentDetailsViewModel
 
 <div class="">
-    <br />
     <h4 class="boxTitle">Student Details</h4>
 
     <div class="">
-        <h4 class="nameTitle">First Name: @Model.FirstName</h4>
-        <h4 class="nameTitle">Last Name: @Model.LastName</h4>
-        <h4 class="nameTitle">User Name: @Model.UserName</h4>
-        <h4 class="nameTitle">Email: @Model.Email</h4>
-
+        <h5 class="nameTitle font-italic">First Name: <br /> <span class="font-weight-bold">@Model.FirstName</span></h5>
+        <h5 class="nameTitle font-italic">Last Name: <br /> <span class="font-weight-bold">@Model.LastName</span></h5>
+        <h5 class="nameTitle font-italic">User Name: <br /> <span class="font-weight-bold">@Model.UserName</span></h5>
+        <h5 class="nameTitle font-italic">Email: <br /> <span class="font-weight-bold">@Model.Email</span></h5>
     </div>
-    @if (User.IsInRole("Teacher"))
-    {
-        <div>
-            <a asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
-        </div>
-    }
-    </div>
+</div>
