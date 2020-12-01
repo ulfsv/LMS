@@ -4,9 +4,11 @@
     <h4 class="boxTitle">Student Details</h4>
 
     <div class="">
+        <div><a asp-action="Edit" asp-route-id="@Model.Email" class="btn myBtnEdit float-sm-right">Edit</a></div>
         <h5 class="nameTitle font-italic">First Name: <br /> <span class="font-weight-bold">@Model.FirstName</span></h5>
         <h5 class="nameTitle font-italic">Last Name: <br /> <span class="font-weight-bold">@Model.LastName</span></h5>
         <h5 class="nameTitle font-italic">User Name: <br /> <span class="font-weight-bold">@Model.UserName</span></h5>
         <h5 class="nameTitle font-italic">Email: <br /> <span class="font-weight-bold">@Model.Email</span></h5>
     </div>
+
 </div>
