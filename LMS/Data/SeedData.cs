@@ -78,6 +78,7 @@ namespace LMS.Data
                     var fName = fake.Name.FirstName();
                     var lName = fake.Name.LastName();
                     var email = fake.Internet.Email($"{fName} {lName}");
+                    var avatar = fake.Internet.Avatar();
 
                     var student = new ApplicationUser
                     {
@@ -85,6 +86,7 @@ namespace LMS.Data
                         LastName = lName,
                         Email = email,
                         UserName = email,
+                        Avatar = avatar,
                         CourseId = courses[rnd.Next(courses.Count)].Id
                     };
                     await userManger.CreateAsync(student, adminPW);

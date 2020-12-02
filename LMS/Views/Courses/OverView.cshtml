@@ -44,6 +44,13 @@ else
                         <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
                     </ul>
                 }
+                <div class="col-sm-12 moduleBox colPadding">
+                    <h3 class="moduleBoxTitle">Student Avatar</h3>
+                    <ul>
+                        <li>Avatar goes here</li>
+                        <li>@Html.DisplayNameFor(model => model.Avatar)</li>
+                    </ul>
+                </div>
             </div>
 
             @if (User.IsInRole("Teacher"))
@@ -55,6 +62,7 @@ else
             <div class="col-sm-12 moduleBox colPadding" id="moduleListContainer">
                 <h3 class="moduleBoxTitle">Modules and Activities</h3>
             </div>
+
         </div>
     </div>
     <!--Course and Student list-->

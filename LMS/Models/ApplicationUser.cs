@@ -11,6 +11,7 @@ namespace LMS.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
+        public string Avatar { get; set; }
         public DateTime TimeOfRegistration { get; set; }
 
         // Foreign key
