@@ -4,7 +4,10 @@
     <h4 class="boxTitle">Student Details</h4>
 
     <div class="">
-        <div><a asp-area="Identity" asp-page="/Account/Edit" asp-route-id="@Model.Id" class="btn myBtnEdit float-sm-right">Edit</a></div>
+        @if (User.IsInRole("Teacher"))
+        {
+            <div><a asp-area="Identity" asp-page="/Account/Edit" asp-route-id="@Model.Id" class="btn myBtnEdit float-sm-right">Edit</a></div>
+        }
         <h5 class="nameTitle font-italic">First Name: <br /> <span class="font-weight-bold">@Model.FirstName</span></h5>
         <h5 class="nameTitle font-italic">Last Name: <br /> <span class="font-weight-bold">@Model.LastName</span></h5>
         <h5 class="nameTitle font-italic">User Name: <br /> <span class="font-weight-bold">@Model.UserName</span></h5>
