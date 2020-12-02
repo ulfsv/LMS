@@ -11,6 +11,7 @@ namespace LMS.Models.ViewModels
         public List<Course> Courses { get; set; }
         // fields
         public ApplicationUser Teacher { get; set; }
+        public ApplicationUser Student { get; set; }
         public string NextCourse { get; set; }
         public bool ShowAllCourses { get; set; }
         public int PreSelectedCourse { get; set; }
