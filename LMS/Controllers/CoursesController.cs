@@ -43,6 +43,7 @@ namespace LMS.Controllers
                 model.Courses = await db.Courses.ToListAsync();
 
             model.PreSelectedCourse = courseId.Value;
+            model.Teacher = await userManager.GetUserAsync(User);
 
             return View(model);
         }

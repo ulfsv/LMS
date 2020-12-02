@@ -22,7 +22,7 @@ namespace LMS
             {
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<ApplicationDbContext>();
-                //context.Database.Migrate();
+                context.Database.Migrate();
 
                 var config = services.GetRequiredService<IConfiguration>();
 

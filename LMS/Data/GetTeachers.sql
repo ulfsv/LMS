@@ -4,4 +4,4 @@ join AspNetUserRoles as userroles
 on users.Id = userroles.UserId
 join AspNetRoles as roles
 on userroles.RoleId = roles.Id
-where roles.Name = 'TEACHER'
+where roles.Name = 'STUDENT'

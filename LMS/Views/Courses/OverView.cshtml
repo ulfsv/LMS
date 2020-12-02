@@ -48,8 +48,9 @@ else
                     <h3 class="moduleBoxTitle">Student Avatar</h3>
                     <ul>
                         <li>Avatar goes here</li>
-                        <li>@Html.DisplayNameFor(model => model.Avatar)</li>
+                        <li> @Html.DisplayNameFor(model => model.Teacher.Avatar)</li>
                     </ul>
+                        <img src="@Model.Teacher.Avatar" alt="studentimage"/>
                 </div>
             </div>
 

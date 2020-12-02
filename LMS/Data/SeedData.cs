@@ -18,7 +18,7 @@ namespace LMS.Data
 
             using (var context = new ApplicationDbContext(services.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-               if (context.Courses.Any()) return;
+               //if (context.Courses.Any()) return;
 
                 var fake = new Faker();
                 //var lorem = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. " +
@@ -78,15 +78,14 @@ namespace LMS.Data
                     var fName = fake.Name.FirstName();
                     var lName = fake.Name.LastName();
                     var email = fake.Internet.Email($"{fName} {lName}");
-                    var avatar = fake.Internet.Avatar();
-
+                    var avatar = "https://commons.wikimedia.org/wiki/Commons:Quality_images#/media/File:Gull_portrait_ca_usa.jpg";
                     var student = new ApplicationUser
                     {
                         FirstName = fName,
                         LastName = lName,
                         Email = email,
-                        UserName = email,
                         Avatar = avatar,
+                        UserName = email,
                         CourseId = courses[rnd.Next(courses.Count)].Id
                     };
                     await userManger.CreateAsync(student, adminPW);
