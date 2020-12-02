@@ -19,7 +19,7 @@
     @if (User.IsInRole("Teacher"))
     {
         <div>
-            <a asp-action="Create" class="btn myBtnAdd float-right">New Student</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn myBtnAdd float-right">New Student</a>
         </div>
     }
 </div>

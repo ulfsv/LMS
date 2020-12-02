@@ -19,7 +19,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LMS.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [Authorize(Roles = "Teacher")]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -86,7 +86,7 @@ namespace LMS.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Courses/Overview");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace LMS.Areas.Identity.Pages.Account
                     UserName = Input.Email, Email = Input.Email, CourseId = Input.CourseId};
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                var result2 = await _userManager.AddToRoleAsync(user, "Student");
+                await _userManager.AddToRoleAsync(user, "Student");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
@@ -116,7 +116,7 @@ namespace LMS.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        //await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
                 }

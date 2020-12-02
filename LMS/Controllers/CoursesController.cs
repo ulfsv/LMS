@@ -133,6 +133,7 @@ namespace LMS.Controllers
 
             var model = new StudentDetailsViewModel()
             {
+                Id=student.Id,
                 FirstName = student.FirstName,
                 LastName = student.LastName,
                 UserName = student.UserName,
