@@ -1,21 +1,16 @@
 ﻿@model LMS.Models.ViewModels.ModuleListViewModel
 
 <div>
-
     <h3 class="moduleBoxTitle">Modules and Activities</h3>
-
     <div class="accordion" id="accordionModule">
-
         @foreach (var item in Model.ModuleList)
         {
-
             <ul class="myListGroupModules MyModuleListPostition">
                 <li id="X@(item.Id)" class="list-group-item myListGroupModules moduleSelector" data-toggle="collapse"
                     data-target="#M@(item.Id)" aria-expanded="true" aria-controls="">
                     <h4 class="moduleTitleList myListGroupItem modulesList"><span class="act">MOD - </span> @item.Name</h4>
                 </li>
             </ul>
-
             <div id="M@(item.Id)" class="collapse myCollapse color" aria-labelledby="headingOne"
                  data-parent="#accordionModule">
                 @foreach (var activity in item.Activities)

@@ -15,6 +15,7 @@ namespace LMS.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
+        public string Avatar { get; set; }
         public DateTime TimeOfRegistration { get; set; }
 
         // Foreign key

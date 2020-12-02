@@ -14,6 +14,7 @@ namespace LMS.Models.ViewModels
         public string NextCourse { get; set; }
         public bool ShowAllCourses { get; set; }
         public int PreSelectedCourse { get; set; }
+        public string Avatar { get; set; }
 
     }
 }
