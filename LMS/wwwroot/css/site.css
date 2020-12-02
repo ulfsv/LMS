@@ -187,6 +187,12 @@ body {
     max-height: 370px;
     padding-top: 15px
 }
+.studentBoxHeightTop {
+    height: 55%;
+}
+.centerText {
+    text-align: center;
+}
 .courseBoxHeightTop {
     height: 45%;
     overflow-y: auto;
@@ -256,7 +262,10 @@ body {
 .myTopPadding {
     padding-top: 15px;
 }
-.modulBox {
+.studentBox {
+
+}
+.moduleBox {
     padding: 10px 0 0;
     height: 295px;
 }
@@ -296,6 +305,11 @@ body {
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 700;
+}
+.studentTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 .boxTitle {
     font-size: 14px;
@@ -499,4 +513,13 @@ body {
     overflow-y: auto;
 }
 
+
+.avatarStudent {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    padding: 1.3em 1.3em 2em;
+    border-radius: 50%;
+    width: 100%;
+}
 

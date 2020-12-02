@@ -8,23 +8,16 @@
 @if (User.IsInRole("Teacher"))
 {
     <h1>Teacher Course Overview</h1>
-}
-else
-{
-    <h1>Course Name: <span class="quotes">@Model.Courses.First().Name</span></h1>
-}
 
+    @*Welcome text teacher*@
+    <div class="nextCourseInfo">
+        Welcome back <span class="font-weight-bold">@activityService.GetActivity(User).UserName!</span><br />
+        Your next activity
+        <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
+        starts at
+        <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
+    </div>
 
-@*Welcome text teacher*@
-<div class="nextCourseInfo">
-    Welcome back <span class="font-weight-bold">@activityService.GetActivity(User).UserName!</span><br />
-    Your next activity
-    <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
-    starts at
-    <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
-</div>
-@if (User.IsInRole("Teacher"))
-{
     <div class="form-group form-check">
         <form asp-action="OverView">
             <input type="checkbox" class="form-check-input" id="checkbox" asp-for="ShowAllCourses" />
@@ -32,10 +25,22 @@ else
         </form>
     </div>
 }
+@if (User.IsInRole("Student"))
+{
+    @*Welcome text teacher*@
+    <div class="nextCourseInfo">
+        Your next activity
+        <span class="quotes">@activityService.GetActivity(User).Aktivitet.Name</span>
+        starts at
+        <span class="font-weight-bold">@activityService.GetActivity(User).Aktivitet.StartTime.ToString("yyyy-MM-dd | HH:mm")</span>
+    </div>
+}
 <div class="row">
     @*Courses and module box to the left*@
     <div class="col-3">
         <div class="coursesBox">
+            @if (User.IsInRole("Teacher"))
+            {
             <div class="courseBoxHeightTop">
                 <h3 class="boxTitle">Courses</h3>
                 @foreach (var item in Model.Courses)
@@ -44,26 +49,31 @@ else
                         <li id="C@(item.Id)" class="list-group-item courseSelector myListGroupItem cursor">@item.Name</li>
                     </ul>
                 }
-                <div class="col-sm-12 moduleBox colPadding">
-                    <h3 class="moduleBoxTitle">Student Avatar</h3>
-                    <ul>
-                        <li>Avatar goes here</li>
-                        <li> @Html.DisplayNameFor(model => model.Teacher.Avatar)</li>
-                    </ul>
-                        <img src="@Model.Teacher.Avatar" alt="studentimage"/>
+                <div class="col-sm-12 studentBox colPadding">
+                    <img class="avatarStudent" src="@Model.Teacher.Avatar" alt="studentimage" />
                 </div>
+
             </div>
 
-            @if (User.IsInRole("Teacher"))
-            {
                 <a asp-action="Create" class="btn myBtnAdd">Add New Course</a>
+            }
+
+            @if (User.IsInRole("Student"))
+            {
+                <div class="studentBoxHeightTop">
+                    <h1 class="studentTitle centerText">Welcome Back <br /> <span class="font-weight-bold quotes">@activityService.GetActivity(User).UserName!</span></h1>
+                    <br />
+                    <h4 class="boxTitle centerText">Your current course: <br /> <span class="font-weight-bold quotes">@Model.Courses.First().Name</span></h4>
+                    <div class="col-sm-12 studentBox colPadding">
+                        <img class="avatarStudent" src="@Model.Teacher.Avatar" alt="studentimage" />
+                    </div>
+                </div>
             }
 
             <hr />
             <div class="col-sm-12 moduleBox colPadding" id="moduleListContainer">
                 <h3 class="moduleBoxTitle">Modules and Activities</h3>
             </div>
-
         </div>
     </div>
     <!--Course and Student list-->

@@ -78,7 +78,7 @@ namespace LMS.Data
                     var fName = fake.Name.FirstName();
                     var lName = fake.Name.LastName();
                     var email = fake.Internet.Email($"{fName} {lName}");
-                    var avatar = "https://commons.wikimedia.org/wiki/Commons:Quality_images#/media/File:Gull_portrait_ca_usa.jpg";
+                    var avatar = "https://miro.medium.com/max/1445/1*oC1wQeImbqzcfO3jixK2oQ.jpeg";
                     var student = new ApplicationUser
                     {
                         FirstName = fName,
@@ -115,7 +115,7 @@ namespace LMS.Data
                 await context.AddRangeAsync(modules);
                 await context.SaveChangesAsync();
 
-                // seed ActivityTypes 
+                // seed ActivityTypes
                 var types = new[] { "Lecture", "Exercise", "E-learning", "Assignment" };
                 var activityTypes = new List<ActivityType>();
                 foreach (var type in types)
