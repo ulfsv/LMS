@@ -1,14 +1,34 @@
-﻿@model LMS.Models.Aktivitet
+@model LMS.Models.Aktivitet
 
-<h4 class="boxTitle">Activity (ACT)</h4>
-<div class="colHeight">
-    <h4 class="quotes nameTitle">@Model.Name</h4>
-    <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
-    <h4 class="font-weight-bold">Activity Description</h4>
-    <p class="courseDescriptionBox">@Model.Description</p>
-    <h6 class="font-weight-bold">Duration</h6>
-    <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")<br />End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm") </p>
-</div>
+@if (@Model.ActivityType.TypeName.Contains("Assignment"))
+{
+    <h4 class="boxTitle">Activity (ACT)</h4>
+    <div class="colHeight">
+        <h4 class="quotes nameTitle">@Model.Name</h4>
+        <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
+        <h4 class="font-weight-bold">Activity Description</h4>
+        <p class="courseDescriptionBox">@Model.Description</p>
+        <h6 class="font-weight-bold">Duration</h6>
+        <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")<br />End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm") </p>
+        <p class="boxParagraph">Assignment deadline: @Model.EndTime.ToString("yyyy-MM-dd | 00:00") </p>
+    </div>
+}
+else
+{
+    <h4 class="boxTitle">Activity (ACT)</h4>
+    <div class="colHeight">
+        <h4 class="quotes nameTitle">@Model.Name</h4>
+        <p class="typeBox">Activity Type: @Model.ActivityType.TypeName</p>
+        <h4 class="font-weight-bold">Activity Description</h4>
+        <p class="courseDescriptionBox">@Model.Description</p>
+        <h6 class="font-weight-bold">Duration</h6>
+        <p class="boxParagraph">Start: @Model.StartTime.ToString("yyyy-MM-dd | HH:mm")<br />End: @Model.EndTime.ToString("yyyy-MM-dd | HH:mm") </p>
+    </div>
+
+
+}
+
+
 @if (User.IsInRole("Teacher"))
 {
     <div>
