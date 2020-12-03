@@ -87,7 +87,7 @@ namespace LMS.Controllers
             {
                 db.Add(aktivitet);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Overview", "Courses");
             }
             ViewData["ActivityTypeId"] = new SelectList(db.ActivityTypes, "Id", "TypeName", aktivitet.ActivityTypeId);
             //ViewData["ModuleId"] = new SelectList(db.Modules, "Id", "Id", aktivitet.ModuleId);
