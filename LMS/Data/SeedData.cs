@@ -79,6 +79,7 @@ namespace LMS.Data
                     var lName = fake.Name.LastName();
                     var email = fake.Internet.Email($"{fName} {lName}");
                     var avatar = "https://miro.medium.com/max/1445/1*oC1wQeImbqzcfO3jixK2oQ.jpeg";
+                    //var avatar = "~/images/studentImg.jpg";
                     var student = new ApplicationUser
                     {
                         FirstName = fName,
