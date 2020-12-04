@@ -2,6 +2,8 @@
     LMS - a MVC .NET core project
 </h1>
 
+![LMS](https://github.com/MrBrunotte/worldofshape/blob/master/media/images/landingpage.PNG "World of Shape")
+
 **_Table of Contents_**
 
   - [**LMS**](#LMS)
