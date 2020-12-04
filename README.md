@@ -75,3 +75,46 @@ _**Registered** (Student) User:_
 ## **FEATURES**
 
 ### **Existing features**
+
+### **Features left to implement**
+
+## **TECHNOLOGIES USED**
+
+### **Languages, Frameworks, Editor and Version Control**
+
+* [VS2019](https://visualstudio.microsoft.com/vs/)
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [Django 3.0.4](https://www.djangoproject.com/)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Bootstrap 4](https://getbootstrap.com/)
+* [Git](https://git-scm.com/)
+* [GitHub](https://github.com/)
+
+### **Database used:**
+* [SQL Server](https://visualstudio.microsoft.com/vs/features/ssdt/) ~ Database used in **development**
+
+### **Tools used:**
+* [Bootstrap 4.5](https://fontawesome.com/)
+* [Firefox Dev Tools](https://developer.mozilla.org/en-US/docs/Tools)
+* [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
+* [Adobe Xd](https://www.adobe.com/se/products/xd.html)
+
+[Back to: _"Table of Contents"_](#World-of-Shape)
+
+## **CREDITS**
+
+### **Team**
+
+Creators of this project are: 
+
+[Stefan Brunotte](stefanbrunotte.com) 
+[Mats Nilsson]()
+
+### **Acknowledgments**
+
+## **CONTACT**
+
+Created by [Stefan Brunotte](stefanbrunotte.com) (site under construction)
+
+[Back to: _"Table of Contents"_](#World-of-Shape)
