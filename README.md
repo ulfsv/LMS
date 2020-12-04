@@ -9,7 +9,6 @@
     - [**Functionality of Project**](#functionality-of-project)
   - [**UX - User Experience**](#ux---user-experience)
     - [**User Stories:**](#user-stories)
-    - [**Mockup**](#mockup)
   - [**Features**](#features)
     - [**Existing features**](#existing-features)
     - [**Features left to implement**](#features-left-to-implement)
@@ -22,3 +21,57 @@
     - [**Acknowledgments**](#acknowledgments)
   - [**Contact**](#contact)
 
+## **LMS**
+
+LMS is a Learning Management System platform exercise that we have built for teachers and students.
+
+## **Purpose of Project**
+
+The purpose of the project is to build a MVC project from scratch. The aim of the project is to build a functioning platform for both teacher and students. Both users are able to log in and depending on if the  user is a teacher or student they will be directed to the correct page with corresponding functionallity.
+
+Purpose in bullits:
+* Learn to use the MVC framework.
+* Optimize user experience.
+* Create the database schema.
+* Build the database.
+
+### **Functionality of Project**
+
+The application uses the MVC .NET core framework, and follows the MVC (Model, View, Controller) architecture pattern.
+Alonside the MVC .NET Core framework we have used the built in SQL database funciton.
+The "Teacher" user has full access to all the platform functionality and can be seen as an admin user. The "Teacher" user can use all CRUD operations on the platform.
+We have followed the SCRUM framework when designing and developing the project, we have worked with all five SCRUM events (Sprints, Sprint Planning, Daily Scrum, Sprint Review and Sprint Retrospective) when building the project.
+
+We have used Git and GitHub for version controll and we have used our Local branches, one Development branch and on Master branch.
+
+## **UX - USER EXPERIENCE**
+
+The user is either a Teacher or Student. There are different functionality depending on if the user is registered as a teacher or a student. Teachers have full access to all functionality and students have a "read-only" and access to the uppload functionality.
+
+### **User Stories:**
+
+All users must be registered before using the platform.
+
+_**Registered** (Teacher) User:_
+
+* As a **teacher** I can Login and access all the platform functionality.
+* As a **teacher** I can view My course. 
+* As a **teacher** I can view All course. 
+* As a **teacher** I can view All Students.
+* As a **teacher** I can Add/Edit a new Curse. 
+* As a **teacher** I can Add/Edit a new Module.
+* As a **teacher** I can Add/Edit a new Activity.
+* As a **teacher** I can Add/Edit a new Student.
+
+_**Registered** (Student) User:_
+
+* As a **student** I can Login and access the Student overview page.
+* As a **student** I can view My course. 
+* As a **student** I can view My course students. 
+* As a **student** I can Add a new Document to the Course details section. 
+* As a **student** I can Add a new Document to the Module details section. 
+* As a **student** I can Add a new Document to the Activity details section. 
+
+## **FEATURES**
+
+### **Existing features**
