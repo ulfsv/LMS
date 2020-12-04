@@ -101,7 +101,7 @@ _**Registered** (Student) User:_
 * [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
 * [Adobe Xd](https://www.adobe.com/se/products/xd.html)
 
-[Back to: _"Table of Contents"_](#World-of-Shape)
+[Back to: _"Table of Contents"_](#LMS)
 
 ## **CREDITS**
 
