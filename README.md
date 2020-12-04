@@ -18,6 +18,7 @@
     - [**Tools used:**](#tools-used)
   - [**Credits**](#credits)
     - [**Content**](#content)
+    - [**Team**](#team)
     - [**Acknowledgments**](#acknowledgments)
   - [**Contact**](#contact)
 
@@ -108,15 +109,15 @@ _**Registered** (Student) User:_
 
 Creators of this project are: 
 
-[Stefan Brunotte](stefanbrunotte.com) 
-[Mats Nilsson](https://github.com/matslearning)
-[Murtaza Rafi](https://github.com/MurtazaRafi)
-[Ulf Svensson](https://github.com/ulfsv)
+* [Stefan Brunotte](stefanbrunotte.com) 
+* [Mats Nilsson](https://github.com/matslearning)
+* [Murtaza Rafi](https://github.com/MurtazaRafi)
+* [Ulf Svensson](https://github.com/ulfsv)
 
 ### **Acknowledgments**
 
 ## **CONTACT**
 
-Created by [Stefan Brunotte](stefanbrunotte.com) (site under construction)
+Stefan Brunotte](stefanbrunotte.com)
 
-[Back to: _"Table of Contents"_](#World-of-Shape)
+[Back to: _"Table of Contents"_](#LMS)
