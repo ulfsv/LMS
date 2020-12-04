@@ -109,7 +109,9 @@ _**Registered** (Student) User:_
 Creators of this project are: 
 
 [Stefan Brunotte](stefanbrunotte.com) 
-[Mats Nilsson]()
+[Mats Nilsson](https://github.com/matslearning)
+[Murtaza Rafi](https://github.com/MurtazaRafi)
+[Ulf Svensson](https://github.com/ulfsv)
 
 ### **Acknowledgments**
 
