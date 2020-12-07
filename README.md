@@ -120,6 +120,6 @@ Creators of this project are:
 
 ## **CONTACT**
 
-Stefan Brunotte](stefanbrunotte.com)
+[Stefan Brunotte](stefanbrunotte.com)
 
 [Back to: _"Table of Contents"_](#LMS)
