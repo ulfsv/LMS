@@ -91,7 +91,6 @@ _**Registered** (Student) User:_
 * [VS2019](https://visualstudio.microsoft.com/vs/)
 * [HTML](https://en.wikipedia.org/wiki/HTML)
 * [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-* [Django 3.0.4](https://www.djangoproject.com/)
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [Bootstrap 4](https://getbootstrap.com/)
 * [Git](https://git-scm.com/)
@@ -101,7 +100,7 @@ _**Registered** (Student) User:_
 * [SQL Server](https://visualstudio.microsoft.com/vs/features/ssdt/) ~ Database used in **development**
 
 ### **Tools used:**
-* [Bootstrap 4.5](https://fontawesome.com/)
+* [Bootstrap 4](https://getbootstrap.com/)
 * [Firefox Dev Tools](https://developer.mozilla.org/en-US/docs/Tools)
 * [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
 * [Adobe Xd](https://www.adobe.com/se/products/xd.html)
