@@ -82,6 +82,7 @@ _**Registered** (Student) User:_
 ### **Features left to implement**
 
 * When a teacher adds a new student, the course must be preselected.
+* Date check so that modules, activities and courses is added with the correct date.
 
 ## **TECHNOLOGIES USED**
 
