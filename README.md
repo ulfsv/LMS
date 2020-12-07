@@ -123,6 +123,6 @@ Creators of this project are:
 
 ## **CONTACT**
 
-[Ulf Svenssone](ulf.e.sv@gmail.com)
+[Ulf Svensson](ulf.e.sv@gmail.com)
 
 [Back to: _"Table of Contents"_](#LMS)
