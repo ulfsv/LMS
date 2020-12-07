@@ -81,6 +81,8 @@ _**Registered** (Student) User:_
 
 ### **Features left to implement**
 
+* When a teacher adds a new student, the course must be preselected.
+
 ## **TECHNOLOGIES USED**
 
 ### **Languages, Frameworks, Editor and Version Control**
