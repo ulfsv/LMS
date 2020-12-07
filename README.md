@@ -113,15 +113,16 @@ _**Registered** (Student) User:_
 
 Creators of this project are: 
 
+* [Ulf Svensson](https://github.com/ulfsv)
 * [Stefan Brunotte](stefanbrunotte.com) 
 * [Mats Nilsson](https://github.com/matslearning)
 * [Murtaza Rafi](https://github.com/MurtazaRafi)
-* [Ulf Svensson](https://github.com/ulfsv)
+
 
 ### **Acknowledgments**
 
 ## **CONTACT**
 
-[Stefan Brunotte](stefanbrunotte.com)
+[Ulf Svenssone](ulf.e.sv@gmail.com)
 
 [Back to: _"Table of Contents"_](#LMS)
